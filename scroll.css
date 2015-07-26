@@ -6,14 +6,14 @@
 }
 #demo {
 	position: fixed;
-	top: 50px;
+	top: 40px;
 	left: 100px;
 	background: #ccc;
 	color: 444;
 }
 #demox {
 	position: fixed;
-	top: 50px;
+	top: 40px;
 	left: 50px;
 	background: black;
 	color: white;
@@ -30,14 +30,14 @@ body {
 }
 #demopointxx {
 	position: fixed;
-	top: 80px;
+	top: 85px;
 	left: 50px;
 	background: black;
 	color: white;	
 }
 #demopointyy {
 	position: fixed;
-	top: 80px;
+	top: 85px;
 	left: 100px;
 	background: #ccc;
 	color: 444;

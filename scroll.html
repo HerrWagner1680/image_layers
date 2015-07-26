@@ -28,11 +28,13 @@
 <script>
 // You want the objects to move in the opposite direction from the pointer
 // Default epicenter 450x 300y
+
 var epiX = 410
 var epiY = 280
-function epiLocation(){ epiX = event.pageX-6; epiY = event.pageY-30; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
-	document.getElementById("plus_sign").style.top = (epiY).toString() + "px";
-	document.getElementById("plus_sign").style.left = (epiX).toString() + "px";
+function epiLocation(){ epiX = event.pageX; epiY = event.pageY; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
+	document.getElementById("plus_sign").style.top = (epiY-30).toString() + "px";
+	document.getElementById("plus_sign").style.left = (epiX-6).toString() + "px";
+	movex = 100 + epiX - xpointer;
 	};
 //epicenter is the zero point --- above and to left are neg numbers
 document.getElementById("demo").innerHTML = parseInt(window.pageYOffset);
@@ -54,33 +56,54 @@ function showCoords(event) {
 	// zz = document.getElementById("myDiv").style.left
 	var xpointer = event.pageX;
 	var ypointer = event.pageY;
-	document.getElementById("mydiv").style.left = (xpointer/.8).toString() + "px";
+	//document.getElementById("mydiv").style.left = (xpointer/.8).toString() + "px";
+	
+
 	// if statement boxes in the movement 
 	// below is the border or containment of mydiv
 	// xpoint -40 ypoint -210
+	var movex = (epiX-100) - (xpointer-100) + (epiX-100);
+	document.getElementById("mydiv").style.left = (movex).toString() + "px";
+	//if ((xpointer-epiX)/.8 >0) { document.getElementById("mydiv").style.left = "500px";}
+	//if ((xpointer-epiX)/.8 <=0) { document.getElementById("mydiv").style.left = "100px";}
 
-	if ((xpointer-epiX)/.8 >0) { document.getElementById("mydiv").style.left = "500px";}
-	if ((xpointer-epiX)/.8 <=0) { document.getElementById("mydiv").style.left = "100px";}
+	var movey = (epiY-130) - (ypointer-130) + (epiY-130);
 	//if ((xpointer-epiX)/.8 >= 500) { document.getElementById("mydiv").style.left = "500px";}
 	//if ((xpointer-epiX)/.8 <= 100) { document.getElementById("mydiv").style.left = "100px";}
-	document.getElementById("mydiv").style.top = ((ypointer-epiY)/.8).toString() + "px";
-	if ((ypointer-epiY)/.8 >= 300) { document.getElementById("mydiv").style.top = "300px";}
-	if ((ypointer-epiY)/.8 <= 50) { document.getElementById("mydiv").style.top = "50px";}
 
-	document.getElementById("mydiv2").style.left = (xpointer/.5).toString() + "px";
+
+	//below was last valid y pos - 2.39pm 7.26.2015
+	document.getElementById("mydiv").style.top = (movey).toString() + "px";
+	//if ((ypointer-epiY)/.8 >= 300) { document.getElementById("mydiv").style.top = "300px";}
+	//if ((ypointer-epiY)/.8 <= 50) { document.getElementById("mydiv").style.top = "50px";}
+
+
+	var movex_half = ((epiX-100) - (xpointer-100))/2 + (epiX-100);
+
+	var movey_half = ((epiY-130) - (ypointer-130))/2 + (epiY-130);
+	document.getElementById("mydiv2").style.left = (movex_half).toString() + "px";
 	// if statement boxes in the movement
 	// below is the border or containment of mydiv2
 	// xpoint -60 ypoint -230
-	if (xpointer/.5 >= 500) { document.getElementById("mydiv2").style.left = "500px";}
-	if (xpointer/.5 <= 100) { document.getElementById("mydiv2").style.left = "100px";}
-	document.getElementById("mydiv2").style.top = (ypointer/.5).toString() + "px";
-	if (ypointer/.5 >= 300) { document.getElementById("mydiv2").style.top = "300px";}
-	if (ypointer/.5 <= 50) { document.getElementById("mydiv2").style.top = "50px";}
+	// if (xpointer/.5 >= 500) { document.getElementById("mydiv2").style.left = "500px";}
+	// if (xpointer/.5 <= 100) { document.getElementById("mydiv2").style.left = "100px";}
+	document.getElementById("mydiv2").style.top = (movey_half).toString() + "px";
+	// if (ypointer/.5 >= 300) { document.getElementById("mydiv2").style.top = "300px";}
+	// if (ypointer/.5 <= 50) { document.getElementById("mydiv2").style.top = "50px";}
 
 }
 function clearCoor() {
     document.getElementById("demopointxx").innerHTML = " X";
     document.getElementById("demopointyy").innerHTML = " Y";
+}
+
+//note obj_name must be a string
+function calcObjCenter(obj_name) {
+	var wid = document.getElementById(obj_name).offsetWidth;
+	var hgt = document.getElementById(obj_name).offsetHeight;
+	console.log(obj_name + " width " + wid + " height " + hgt);
+	console.log("center by reducing width by " + (wid/2));
+	console.log("center by reducing height by " + (hgt/2));
 }
 
 
