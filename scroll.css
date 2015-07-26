@@ -6,14 +6,14 @@
 }
 #demo {
 	position: fixed;
-	top: 40px;
+	top: 20px;
 	left: 100px;
 	background: #ccc;
 	color: 444;
 }
 #demox {
 	position: fixed;
-	top: 40px;
+	top: 20px;
 	left: 50px;
 	background: black;
 	color: white;

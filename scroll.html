@@ -57,7 +57,13 @@ function showCoords(event) {
 	var xpointer = event.pageX;
 	var ypointer = event.pageY;
 	//document.getElementById("mydiv").style.left = (xpointer/.8).toString() + "px";
-	
+
+	//restrict the pointer in order to restrain movement
+	if (xpointer<=300){ xpointer = 300}; // remember xpointer number skewed by 100
+	if (xpointer>=600){ xpointer = 600};
+
+	if (ypointer<=150){ ypointer = 150}; // remember ypointer number skewed by 130
+	if (ypointer>=400){ ypointer = 400};
 
 	// if statement boxes in the movement 
 	// below is the border or containment of mydiv
@@ -90,6 +96,7 @@ function showCoords(event) {
 	document.getElementById("mydiv2").style.top = (movey_half).toString() + "px";
 	// if (ypointer/.5 >= 300) { document.getElementById("mydiv2").style.top = "300px";}
 	// if (ypointer/.5 <= 50) { document.getElementById("mydiv2").style.top = "50px";}
+
 
 }
 function clearCoor() {
