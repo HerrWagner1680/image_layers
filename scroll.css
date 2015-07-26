@@ -1,0 +1,65 @@
+#demo {
+	position: fixed;
+	top: 50px;
+	left: 100px;
+	background: #ccc;
+	color: 444;
+}
+#demox {
+	position: fixed;
+	top: 50px;
+	left: 50px;
+	background: black;
+	color: white;
+}
+#epicenter {
+	background: red;
+	color: white;
+}
+body {
+	height: 300px;
+	width: 2000px;
+	cursor: crosshair;
+	cursor: default;
+}
+#demopointxx {
+	position: fixed;
+	top: 80px;
+	left: 50px;
+	background: black;
+	color: white;	
+}
+#demopointyy {
+	position: fixed;
+	top: 80px;
+	left: 100px;
+	background: #ccc;
+	color: 444;
+}
+#mydiv {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	background: green;
+	opacity: 0.8;
+/*	top: 300px;
+	left: 450px;*/
+}
+#mydiv2 {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	background: blue;
+	opacity: 0.8;
+/*	top: 80px;
+	left: -10px;*/
+}
+.container {
+	width: 700px;
+	height: 350px;
+	background: gray;
+	opacity: 0.4;
+	left: 80px;
+	position: relative;
+	overflow: hidden;
+}
