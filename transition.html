@@ -7,17 +7,34 @@
 </head>
 <body>
 
-<div id="one"></div>
-<div id="two"></div>
-<div id="three"></div>
+	<div id="header"></div>
+	<div id="one">1</div>
+	<div id="two">2</div>
+	<div id="three">3</div>
 
-<div id="prev">&#60;</div>
-<div id="next">&#62;</div>
+	<div id="container">
+		<div id="prev" onclick="prevMove()">&#60;</div>
+		<div id="next" onclick="nextMove()">&#62;</div>
+	</div>
 	
 </body>
-<script>
-document.getElementById('one').disabled = false;
-document.getElementById('two').disabled = false;
-document.getElementById('three').disabled = false;
-</script>
+	<script>
+		boxes = ["one","two","three"];
+		var x = 0;
+		function prevMove(){
+			document.getElementById(boxes[x]).style.opacity = "0";
+			x = x - 1
+			if (x < 0) { x = 2 }
+			document.getElementById(boxes[x]).style.opacity = "1.0";
+		}
+		function nextMove(){
+			document.getElementById(boxes[x]).style.opacity = "0";
+			x = x + 1
+			if (x > 2) { x = 0 }
+			document.getElementById(boxes[x]).style.opacity = "1.0";
+		}
+		// document.getElementById('one').disabled = false;
+		// document.getElementById('two').disabled = false;
+		// document.getElementById('three').disabled = false;
+	</script>
 </html>

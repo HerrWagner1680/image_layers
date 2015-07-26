@@ -1,64 +1,93 @@
+body{
+	background: #333;
+	overflow: hidden;
+}
+
+#header{
+	width: 100px;
+	height: 100px;
+}
+
 #one{
 	position: relative;
-	width: 150px;
-	height: 100px;
+	overflow: hidden;
+	text-align: center;
+	padding-top: 20px;
+	width: 600px;
+	height: 250px;
+	margin: 0 auto;
 	background: orange;
+	color: white;
+	opacity: 1;
 	  -webkit-transition: opacity 1s;
 	  -moz-transition: opacity 1s;
 	  -o-transition: opacity 1s;
 	  -ms-transition: opacity 1s;       
 	  transition: opacity 1s;
 }
-/*#one:disabled{
-	opacity: 0.3;
-}*/
 #two{
 	position: relative;
-	width: 150px;
-	height: 100px;
+	overflow: hidden;
+	text-align: center;
+	top: -270px;
+	padding-top: 20px;
+	width: 600px;
+	height: 250px;
+	margin: 0 auto;
 	background: green;
+	color: white;
+	opacity: 0;
 	  -webkit-transition: opacity 1s;
 	  -moz-transition: opacity 1s;
 	  -o-transition: opacity 1s;
 	  -ms-transition: opacity 1s;       
 	  transition: opacity 1s;
 }
-/*#two:disabled{
-	opacity: 0.3;
-}*/
 #three{
 	position: relative;
-	width: 150px;
-	height: 100px;
+	overflow: hidden;
+	text-align: center;
+	padding-top: 20px;
+	top: -540px;
+	width: 600px;
+	height: 250px;
+	margin: 0 auto;
 	background: blue;
+	color: white;
+	opacity: 0;
 	  -webkit-transition: opacity 1s;
 	  -moz-transition: opacity 1s;
 	  -o-transition: opacity 1s;
 	  -ms-transition: opacity 1s;       
 	  transition: opacity 1s;
 }
-/*#three:disabled{
-	opacity: 0.3;
-}*/
+
+#container{
+	position: relative;
+	top: -500px;
+	margin: 0 auto;
+	width: 500px;
+	height: 30px;
+	text-align: center;
+/*	margin: 0 auto;*/
+}
 
 #prev{
-	position: fixed;
-	top: 100px;
-	left: 400px;
+	position: relative;
+	display: inline-block;
+	left: -100px;
 	height: 20px;
 	width: 100px;
 	background: #999;
-	text-align: center;
 	border-radius: 10px;
 }
 #next{
-	position: fixed;
-	top: 100px;
-	left: 550px;
+	position: relative;
+	display: inline-block;
+	left: 100px;
 	height: 20px;
 	width: 100px;
 	background: #999;
-	text-align: center;
 	border-radius: 10px;
 }
 #next:hover,#prev:hover{
