@@ -1,3 +1,9 @@
+#plus_sign{
+	color: purple;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
 #demo {
 	position: fixed;
 	top: 50px;
@@ -41,18 +47,18 @@ body {
 	width: 25px;
 	height: 25px;
 	background: green;
-	opacity: 0.8;
-/*	top: 300px;
-	left: 450px;*/
+	opacity: 0.9;
+/*	top: 167.5px;
+	left: 387.5px;*/
 }
 #mydiv2 {
 	position: absolute;
 	width: 40px;
 	height: 40px;
 	background: blue;
-	opacity: 0.8;
-/*	top: 80px;
-	left: -10px;*/
+	opacity: 0.5;
+/*	top: 160px;
+	left: 390px;*/
 }
 .container {
 	width: 700px;

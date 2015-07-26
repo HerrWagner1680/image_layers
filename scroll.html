@@ -5,6 +5,7 @@
 </head>
 <body onmousemove="showCoords(event)" onmouseout="clearCoor()">
 
+
 <h1>Layered views</h1>
 
 
@@ -27,14 +28,18 @@
 <script>
 // You want the objects to move in the opposite direction from the pointer
 // Default epicenter 450x 300y
-var epiX = 450
-var epiY = 300
-function epiLocation(){ epiX = event.pageX; epiY = event.pageY; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";};
+var epiX = 410
+var epiY = 280
+function epiLocation(){ epiX = event.pageX-6; epiY = event.pageY-30; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
+	document.getElementById("plus_sign").style.top = (epiY).toString() + "px";
+	document.getElementById("plus_sign").style.left = (epiX).toString() + "px";
+	};
+//epicenter is the zero point --- above and to left are neg numbers
 document.getElementById("demo").innerHTML = parseInt(window.pageYOffset);
 document.getElementById("demox").innerHTML = parseInt(window.pageXOffset);
 document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
 window.onscroll = function(){
-	document.getElementById("demo").innerHTML = parseInt(window.pageYOffset);
+	document.getElementById("demo").innerHTML = "scroll " + parseInt(window.pageYOffset);
 	document.getElementById("demox").innerHTML = parseInt(window.pageXOffset);
 	// zz = document.getElementById("myDiv").style.left
 	// document.getElementById("myDiv").style.left =(.5*x).toString() + "px";
@@ -49,19 +54,28 @@ function showCoords(event) {
 	// zz = document.getElementById("myDiv").style.left
 	var xpointer = event.pageX;
 	var ypointer = event.pageY;
-	document.getElementById("mydiv").style.left = (xpointer-60).toString() + "px";
+	document.getElementById("mydiv").style.left = (xpointer/.8).toString() + "px";
 	// if statement boxes in the movement 
-	if (xpointer -60 >= 600) { document.getElementById("mydiv").style.left = "600px";}
-	if (xpointer -60 <= 150) { document.getElementById("mydiv").style.left = "150px";}
-	document.getElementById("mydiv").style.top = (ypointer-230).toString() + "px";
-	if (ypointer -230>= 200) { document.getElementById("mydiv").style.top = "200px";}
-	if (ypointer -230<= 50) { document.getElementById("mydiv").style.top = "50px";}
+	// below is the border or containment of mydiv
+	// xpoint -40 ypoint -210
 
-	document.getElementById("mydiv2").style.left = (xpointer-80).toString() + "px";
+	if ((xpointer-epiX)/.8 >0) { document.getElementById("mydiv").style.left = "500px";}
+	if ((xpointer-epiX)/.8 <=0) { document.getElementById("mydiv").style.left = "100px";}
+	//if ((xpointer-epiX)/.8 >= 500) { document.getElementById("mydiv").style.left = "500px";}
+	//if ((xpointer-epiX)/.8 <= 100) { document.getElementById("mydiv").style.left = "100px";}
+	document.getElementById("mydiv").style.top = ((ypointer-epiY)/.8).toString() + "px";
+	if ((ypointer-epiY)/.8 >= 300) { document.getElementById("mydiv").style.top = "300px";}
+	if ((ypointer-epiY)/.8 <= 50) { document.getElementById("mydiv").style.top = "50px";}
+
+	document.getElementById("mydiv2").style.left = (xpointer/.5).toString() + "px";
 	// if statement boxes in the movement
-	if (xpointer -80 >= 650) { document.getElementById("mydiv2").style.left = "650px";}
-	document.getElementById("mydiv2").style.top = (ypointer-250).toString() + "px";
-	if (ypointer -250>= 250) { document.getElementById("mydiv2").style.top = "250px";}
+	// below is the border or containment of mydiv2
+	// xpoint -60 ypoint -230
+	if (xpointer/.5 >= 500) { document.getElementById("mydiv2").style.left = "500px";}
+	if (xpointer/.5 <= 100) { document.getElementById("mydiv2").style.left = "100px";}
+	document.getElementById("mydiv2").style.top = (ypointer/.5).toString() + "px";
+	if (ypointer/.5 >= 300) { document.getElementById("mydiv2").style.top = "300px";}
+	if (ypointer/.5 <= 50) { document.getElementById("mydiv2").style.top = "50px";}
 
 }
 function clearCoor() {
@@ -80,6 +94,7 @@ function clearCoor() {
 // }
 </script>
 
+<p id="plus_sign">+</p>
 ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
 ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
 ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
