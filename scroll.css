@@ -48,8 +48,6 @@ body {
 	height: 25px;
 	background: green;
 	opacity: 0.9;
-/*	top: 167.5px;
-	left: 387.5px;*/
 }
 #mydiv2 {
 	position: absolute;
@@ -57,8 +55,6 @@ body {
 	height: 40px;
 	background: blue;
 	opacity: 0.5;
-/*	top: 160px;
-	left: 390px;*/
 }
 .container {
 	width: 700px;

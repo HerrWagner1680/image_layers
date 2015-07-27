@@ -1,142 +1,140 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="scroll.css">
+	<link rel="stylesheet" type="text/css" href="scroll.css">
 </head>
 <body onmousemove="showCoords(event)" onmouseout="clearCoor()">
 
+	<h1>Layered views</h1>
 
-<h1>Layered views</h1>
+	<p id="demox"></p>
+	<p id="demo"></p>
+	<p id="epicenter"></p>
+	<!-- <form name="Show">
+	<input id="demopointx" type="text" name="MouseX" value="0" size="4"> X<br>
+	<input id="demopointy" type="text" name="MouseY" value="0" size="4"> Y<br>
+	</form> -->
+	<div class="container" onclick="epiLocation()">
+		<div id="mydiv"></div>
+		<div id="mydiv2"></div>
+	</div>
 
-
-<p id="demox"></p>
-<p id="demo"></p>
-<p id="epicenter"></p>
-<!-- <form name="Show">
-<input id="demopointx" type="text" name="MouseX" value="0" size="4"> X<br>
-<input id="demopointy" type="text" name="MouseY" value="0" size="4"> Y<br>
-</form> -->
-<div class="container" onclick="epiLocation()">
-<div id="mydiv"></div>
-<div id="mydiv2"></div>
-</div>
-
-<p id="demopointxx"></p>
-<p id="demopointyy"></p>
+	<p id="demopointxx"></p>
+	<p id="demopointyy"></p>
 
 
 <script>
-// You want the objects to move in the opposite direction from the pointer
-// Default epicenter 450x 300y
+	// You want the objects to move in the opposite direction from the pointer
+	// Default epicenter 450x 300y
 
-var epiX = 410
-var epiY = 280
-function epiLocation(){ epiX = event.pageX; epiY = event.pageY; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
-	document.getElementById("plus_sign").style.top = (epiY-30).toString() + "px";
-	document.getElementById("plus_sign").style.left = (epiX-6).toString() + "px";
-	movex = 100 + epiX - xpointer;
-	};
-//epicenter is the zero point --- above and to left are neg numbers
-document.getElementById("demo").innerHTML = parseInt(window.pageYOffset);
-document.getElementById("demox").innerHTML = parseInt(window.pageXOffset);
-document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
-window.onscroll = function(){
-	document.getElementById("demo").innerHTML = "scroll " + parseInt(window.pageYOffset);
+	var epiX = 410
+	var epiY = 280
+	function epiLocation(){ epiX = event.pageX; epiY = event.pageY; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
+		document.getElementById("plus_sign").style.top = (epiY-30).toString() + "px";
+		document.getElementById("plus_sign").style.left = (epiX-6).toString() + "px";
+		movex = 100 + epiX - xpointer;
+		};
+	//epicenter is the zero point --- above and to left are neg numbers
+	document.getElementById("demo").innerHTML = parseInt(window.pageYOffset);
 	document.getElementById("demox").innerHTML = parseInt(window.pageXOffset);
-	// zz = document.getElementById("myDiv").style.left
-	// document.getElementById("myDiv").style.left =(.5*x).toString() + "px";
-	};
-function showCoords(event) {
-    // var x = event.clientX + " X";
-    // var y = event.clientY + " Y";
-    var x = event.pageX + " X"; // gives precise location on the document
-    var y = event.pageY + " Y"; // gives precise location on the document
-    document.getElementById("demopointxx").innerHTML = x;
-    document.getElementById("demopointyy").innerHTML = y;
-	// zz = document.getElementById("myDiv").style.left
-	var xpointer = event.pageX;
-	var ypointer = event.pageY;
-	//document.getElementById("mydiv").style.left = (xpointer/.8).toString() + "px";
+	document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
+	window.onscroll = function(){
+		document.getElementById("demo").innerHTML = "scroll " + parseInt(window.pageYOffset);
+		document.getElementById("demox").innerHTML = parseInt(window.pageXOffset);
+		// zz = document.getElementById("myDiv").style.left
+		// document.getElementById("myDiv").style.left =(.5*x).toString() + "px";
+		};
+	function showCoords(event) {
+	    // var x = event.clientX + " X";
+	    // var y = event.clientY + " Y";
+	    var x = event.pageX + " X"; // gives precise location on the document
+	    var y = event.pageY + " Y"; // gives precise location on the document
+	    document.getElementById("demopointxx").innerHTML = x;
+	    document.getElementById("demopointyy").innerHTML = y;
+		// zz = document.getElementById("myDiv").style.left
+		var xpointer = event.pageX;
+		var ypointer = event.pageY;
+		//document.getElementById("mydiv").style.left = (xpointer/.8).toString() + "px";
 
-	//restrict the pointer in order to restrain movement
-	if (xpointer<=300){ xpointer = 300}; // remember xpointer number skewed by 100
-	if (xpointer>=600){ xpointer = 600};
+		//restrict the pointer in order to restrain movement
+		if (xpointer<=300){ xpointer = 300}; // remember xpointer number skewed by 100
+		if (xpointer>=600){ xpointer = 600};
 
-	if (ypointer<=150){ ypointer = 150}; // remember ypointer number skewed by 130
-	if (ypointer>=400){ ypointer = 400};
+		if (ypointer<=150){ ypointer = 150}; // remember ypointer number skewed by 130
+		if (ypointer>=400){ ypointer = 400};
 
-	// if statement boxes in the movement 
-	// below is the border or containment of mydiv
-	// xpoint -40 ypoint -210
-	var movex = (epiX-100) - (xpointer-100) + (epiX-100);
-	document.getElementById("mydiv").style.left = (movex).toString() + "px";
-	//if ((xpointer-epiX)/.8 >0) { document.getElementById("mydiv").style.left = "500px";}
-	//if ((xpointer-epiX)/.8 <=0) { document.getElementById("mydiv").style.left = "100px";}
+		// if statement boxes in the movement 
+		// below is the border or containment of mydiv
+		// xpoint -40 ypoint -210
+		var movex = (epiX-100) - (xpointer-100) + (epiX-100);
+		document.getElementById("mydiv").style.left = (movex).toString() + "px";
+		//if ((xpointer-epiX)/.8 >0) { document.getElementById("mydiv").style.left = "500px";}
+		//if ((xpointer-epiX)/.8 <=0) { document.getElementById("mydiv").style.left = "100px";}
 
-	var movey = (epiY-130) - (ypointer-130) + (epiY-130);
-	//if ((xpointer-epiX)/.8 >= 500) { document.getElementById("mydiv").style.left = "500px";}
-	//if ((xpointer-epiX)/.8 <= 100) { document.getElementById("mydiv").style.left = "100px";}
-
-
-	//below was last valid y pos - 2.39pm 7.26.2015
-	document.getElementById("mydiv").style.top = (movey).toString() + "px";
-	//if ((ypointer-epiY)/.8 >= 300) { document.getElementById("mydiv").style.top = "300px";}
-	//if ((ypointer-epiY)/.8 <= 50) { document.getElementById("mydiv").style.top = "50px";}
+		var movey = (epiY-130) - (ypointer-130) + (epiY-130);
+		//if ((xpointer-epiX)/.8 >= 500) { document.getElementById("mydiv").style.left = "500px";}
+		//if ((xpointer-epiX)/.8 <= 100) { document.getElementById("mydiv").style.left = "100px";}
 
 
-	var movex_half = ((epiX-100) - (xpointer-100))/2 + (epiX-100);
-
-	var movey_half = ((epiY-130) - (ypointer-130))/2 + (epiY-130);
-	document.getElementById("mydiv2").style.left = (movex_half).toString() + "px";
-	// if statement boxes in the movement
-	// below is the border or containment of mydiv2
-	// xpoint -60 ypoint -230
-	// if (xpointer/.5 >= 500) { document.getElementById("mydiv2").style.left = "500px";}
-	// if (xpointer/.5 <= 100) { document.getElementById("mydiv2").style.left = "100px";}
-	document.getElementById("mydiv2").style.top = (movey_half).toString() + "px";
-	// if (ypointer/.5 >= 300) { document.getElementById("mydiv2").style.top = "300px";}
-	// if (ypointer/.5 <= 50) { document.getElementById("mydiv2").style.top = "50px";}
+		//below was last valid y pos - 2.39pm 7.26.2015
+		document.getElementById("mydiv").style.top = (movey).toString() + "px";
+		//if ((ypointer-epiY)/.8 >= 300) { document.getElementById("mydiv").style.top = "300px";}
+		//if ((ypointer-epiY)/.8 <= 50) { document.getElementById("mydiv").style.top = "50px";}
 
 
-}
-function clearCoor() {
-    document.getElementById("demopointxx").innerHTML = " X";
-    document.getElementById("demopointyy").innerHTML = " Y";
-}
+		var movex_half = ((epiX-100) - (xpointer-100))/2 + (epiX-100);
 
-//note obj_name must be a string
-function calcObjCenter(obj_name) {
-	var wid = document.getElementById(obj_name).offsetWidth;
-	var hgt = document.getElementById(obj_name).offsetHeight;
-	console.log(obj_name + " width " + wid + " height " + hgt);
-	console.log("center by reducing width by " + (wid/2));
-	console.log("center by reducing height by " + (hgt/2));
-}
+		var movey_half = ((epiY-130) - (ypointer-130))/2 + (epiY-130);
+		document.getElementById("mydiv2").style.left = (movex_half).toString() + "px";
+		// if statement boxes in the movement
+		// below is the border or containment of mydiv2
+		// xpoint -60 ypoint -230
+		// if (xpointer/.5 >= 500) { document.getElementById("mydiv2").style.left = "500px";}
+		// if (xpointer/.5 <= 100) { document.getElementById("mydiv2").style.left = "100px";}
+		document.getElementById("mydiv2").style.top = (movey_half).toString() + "px";
+		// if (ypointer/.5 >= 300) { document.getElementById("mydiv2").style.top = "300px";}
+		// if (ypointer/.5 <= 50) { document.getElementById("mydiv2").style.top = "50px";}
 
 
-// <div id="myDiv" style="position:absolute;left:205px;">This is a div element.</div>
+	}
+	function clearCoor() {
+	    document.getElementById("demopointxx").innerHTML = " X";
+	    document.getElementById("demopointyy").innerHTML = " Y";
+	}
 
-// <button type="button" onclick="myFunction()">Return left position of div</button>
+	//note obj_name must be a string
+	function calcObjCenter(obj_name) {
+		var wid = document.getElementById(obj_name).offsetWidth;
+		var hgt = document.getElementById(obj_name).offsetHeight;
+		console.log(obj_name + " width " + wid + " height " + hgt);
+		console.log("center by reducing width by " + (wid/2));
+		console.log("center by reducing height by " + (hgt/2));
+	}
 
-// <script>
-// function myFunction() {
-//     document.getElementById("myDiv").style.left =(1.5*200).toString() + "px";
-// }
+
+	// <div id="myDiv" style="position:absolute;left:205px;">This is a div element.</div>
+
+	// <button type="button" onclick="myFunction()">Return left position of div</button>
+
+	// <script>
+	// function myFunction() {
+	//     document.getElementById("myDiv").style.left =(1.5*200).toString() + "px";
+	// }
 </script>
 
-<p id="plus_sign">+</p>
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
-ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+	<p id="plus_sign">+</p>
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
+		ls and determine through independent judgment those which require immediate attention Coordination of travel arrangements Overall management of busy calendars Coordination and scheduling of meetings Process and track expense reimbursements Maintaining and updating contacts lists Handling sensitive and confidential information with discretion Maintain up-to-date and accurate filing system Provide phone backup support to other EAs as needed Assist with additional projects and other duties as required Punctual, regular, and consistent attendance
 
 </body>
 </html> 

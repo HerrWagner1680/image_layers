@@ -5,12 +5,22 @@
 	<link rel="stylesheet" type="text/css" href="transition.css">
 	<title>Transition</title>
 </head>
-<body>
+<body onmousemove="showCoords(event)" onmouseout="clearCoor()">
 
-	<div id="header"></div>
-	<div id="one">1</div>
-	<div id="two">2</div>
-	<div id="three">3</div>
+	<div id="header">	
+		<p id="epicenter"></p> 
+		<p id="demopointxx"></p>
+		<p id="demopointyy"></p>
+	</div>
+
+	<div class="container" onclick="epiLocation()">
+		<div id="one" onclick="epiLocation()">1<p id="square"></p><p class="dot"></p></div>
+		<div id="two" onclick="epiLocation()">2<p id="square2"></p><p class="dot"></p></div>
+		<div id="three" onclick="epiLocation()">3<p id="square3"></p><p class="dot"></p></div>
+
+		<!-- <div id="mydiv"></div> -->
+		<!-- <div id="mydiv2"></div> -->
+	</div>
 
 	<div id="container">
 		<div id="prev" onclick="prevMove()">&#60;</div>
@@ -33,8 +43,86 @@
 			if (x > 2) { x = 0 }
 			document.getElementById(boxes[x]).style.opacity = "1.0";
 		}
-		// document.getElementById('one').disabled = false;
-		// document.getElementById('two').disabled = false;
-		// document.getElementById('three').disabled = false;
+
+	// You want the objects to move in the opposite direction from the pointer
+	// Default epicenter 450x 300y
+
+	var epiX = 618
+	var epiY = 278
+	function epiLocation(){ epiX = event.pageX; epiY = event.pageY; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
+		document.getElementById("plus_sign").style.top = (epiY-30).toString() + "px";
+		document.getElementById("plus_sign").style.left = (epiX-6).toString() + "px";
+		movex = 100 + epiX - xpointer;
+		};
+	//epicenter is the zero point --- above and to left are neg numbers
+
+	document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
+	document.getElementById("demopointxx").innerHTML = "xx";
+	document.getElementById("demopointyy").innerHTML = "yy";
+
+	function showCoords(event) {
+	    // var x = event.clientX + " X";
+	    // var y = event.clientY + " Y";
+	    var x = event.pageX + " X"; // gives precise location on the document
+	    var y = event.pageY + " Y"; // gives precise location on the document
+	    document.getElementById("demopointxx").innerHTML = x;
+	    document.getElementById("demopointyy").innerHTML = y;
+		// zz = document.getElementById("myDiv").style.left
+		var xpointer = event.pageX;
+		var ypointer = event.pageY;
+		//document.getElementById("mydiv").style.left = (xpointer/.8).toString() + "px";
+
+		//restrict the pointer in order to restrain movement
+		//if (xpointer<=300){ xpointer = 300}; // remember xpointer number skewed by 100
+		//if (xpointer>=400){ xpointer = 400};
+
+		//if (ypointer<=150){ ypointer = 150}; // remember ypointer number skewed by 130
+		//if (ypointer>=400){ ypointer = 400};
+
+		// if statement boxes in the movement 
+		// below is the border or containment of mydiv
+		// xpoint -40 ypoint -210
+		var movex = (epiX-100) - (xpointer-100) + (epiX-100);
+		document.getElementById("square").style.left = (xpointer-340).toString() + "px";
+		//if ((xpointer-epiX)/.8 >0) { document.getElementById("mydiv").style.left = "500px";}
+		//if ((xpointer-epiX)/.8 <=0) { document.getElementById("mydiv").style.left = "100px";}
+
+		var movey = (epiY-130) - (ypointer-130) + (epiY-130);
+		//if ((xpointer-epiX)/.8 >= 500) { document.getElementById("mydiv").style.left = "500px";}
+		//if ((xpointer-epiX)/.8 <= 100) { document.getElementById("mydiv").style.left = "100px";}
+
+		//below was last valid y pos - 2.39pm 7.26.2015
+		document.getElementById("square").style.top = (ypointer-200).toString() + "px";
+		//if ((ypointer-epiY)/.8 >= 300) { document.getElementById("mydiv").style.top = "300px";}
+		//if ((ypointer-epiY)/.8 <= 50) { document.getElementById("mydiv").style.top = "50px";}
+
+		var movex_half = ((epiX-100) - (xpointer-100))/2 + (epiX-100);
+
+		var movey_half = ((epiY-130) - (ypointer-130))/2 + (epiY-130);
+		document.getElementById("mydiv2").style.left = (movex_half).toString() + "px";
+		// if statement boxes in the movement
+		// below is the border or containment of mydiv2
+		// xpoint -60 ypoint -230
+		// if (xpointer/.5 >= 500) { document.getElementById("mydiv2").style.left = "500px";}
+		// if (xpointer/.5 <= 100) { document.getElementById("mydiv2").style.left = "100px";}
+		document.getElementById("mydiv2").style.top = (movey_half).toString() + "px";
+		// if (ypointer/.5 >= 300) { document.getElementById("mydiv2").style.top = "300px";}
+		// if (ypointer/.5 <= 50) { document.getElementById("mydiv2").style.top = "50px";}
+
+	}
+	function clearCoor() {
+	    document.getElementById("demopointxx").innerHTML = " X";
+	    document.getElementById("demopointyy").innerHTML = " Y";
+	}
+
+	//note obj_name must be a string
+	function calcObjCenter(obj_name) {
+		var wid = document.getElementById(obj_name).offsetWidth;
+		var hgt = document.getElementById(obj_name).offsetHeight;
+		console.log(obj_name + " width " + wid + " height " + hgt);
+		console.log("center by reducing width by " + (wid/2));
+		console.log("center by reducing height by " + (hgt/2));
+	}
+
 	</script>
 </html>
