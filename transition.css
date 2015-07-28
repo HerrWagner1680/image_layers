@@ -3,35 +3,74 @@ body{
 	overflow: hidden;
 }
 
+#sq_left{
+	position: fixed;
+/*	top: -100px;*/
+	height: 15px;
+	width: 50px;
+	color: #ccc;
+}
+#sq_top{
+	position: fixed;
+	margin-top: 60px;
+	height: 15px;
+	width: 50px;
+	color: #ccc;
+}
+#marg_l{
+	position: fixed;
+/*	margin-top: 100px;*/
+	height: 15px;
+	width: 50px;
+	color: #ccc;
+}
+#block_pt{
+	position: fixed;
+/*	margin-top: 130px;*/
+	height: 15px;
+	width: 50px;
+	color: red;	
+}
+
 #square{
 	position: relative;
-	left: 150px;
-	width: 450px;
-	height: 250px;
-	background: #ddd;
-	opacity: 0.2;
+/*	left: 150px;*/
+    background: url("dext1_r.png");
+/*	width: 450px;
+	height: 250px;*/
+	width: 700px;
+	height: 500px;
+/*	background: #ddd;*/
+	opacity: 0.9;
 }
 #square_2{
 	position: relative;
 /*	top: -320px;*/
-	left: 200px;
-	width: 500px;
-	height: 300px;
-	background: #ddd;
-	opacity: 0.2;
+/*	left: 200px;*/
+    background: url("dext1_e.png");
+/*	width: 500px;
+	height: 300px;*/
+	width: 700px;
+	height: 500px;
+
+	/*background: #ddd;*/
+	opacity: 0.9;
 }
 #square_3{
 	position: relative;
 /*	top: -670px;*/
-	left: 200px;
-	width: 600px;
-	height: 350px;
-	background: #ddd;
-	opacity: 0.2;
+/*	left: 200px;*/
+    background-image: url("dext1_b.png");
+/*	width: 600px;
+	height: 350px;*/
+	width: 700px;
+	height: 500px;
+/*	background: #ddd;*/
+	opacity: 0.9;
 }
 #square2{
 	position: relative;
-	left: 200px;
+/*	left: 200px;*/
 	width: 500px;
 	height: 300px;
 	background: #ddd;
@@ -39,7 +78,7 @@ body{
 }
 #square3{
 	position: relative;
-	left: 200px;
+/*	left: 200px;*/
 	width: 600px;
 	height: 350px;
 	background: #ddd;
@@ -63,7 +102,7 @@ body{
 
 #one{
 	position: relative;
-	/*overflow: hidden;*/
+	overflow: hidden;
 	text-align: center;
 	padding-top: 20px;
 	width: 600px;
