@@ -6,16 +6,17 @@
 #dataContainerOrientation{ font-size: 50px;}
 </style>
 <script>
-screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+// screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
 
-if (screen.lockOrientationUniversal(["landscape-primary", "landscape-secondary"])) {
-  dataContainerMotion.innerHTML = "locked landscape";
-  // orientation was locked
-} else {
-  dataContainerMotion.innerHTML = "failed lock";
-  // orientation lock failed
-}
+// if (screen.lockOrientationUniversal(["landscape-primary", "landscape-secondary"])) {
+//   dataContainerMotion.innerHTML = "locked landscape";
+//   // orientation was locked
+// } else {
+//   dataContainerMotion.innerHTML = "failed lock";
+//   // orientation lock failed
+// }
 
+screen.lockOrientation('landscape');
 
 
 function init() {
