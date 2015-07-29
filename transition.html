@@ -15,6 +15,8 @@
 		<p id="sq_top"></p>
 	</div>
 
+	<div id="circ"></div>
+
 	<div class="container">
 		<div id="one">1<p class="dot"></p><p id="square"></p><p id="square_2"></p><p id="square_3"></p></div>
 		<div id="two">2<p class="dot"></p><p id="square2"></p></div>
@@ -76,12 +78,13 @@
 	//epicenter is the zero point --- above and to left are neg numbers
 
 	document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
-	document.getElementById("demopointxx").innerHTML = "xx";
-	document.getElementById("demopointyy").innerHTML = "yy";
+	//document.getElementById("demopointxx").innerHTML = "xx";
+	//document.getElementById("demopointyy").innerHTML = "yy";
 
 
 	var left_margin = (window.innerWidth-600)/2 - 8
 
+	var y = 0;
 	function showCoords(event) {
 		// pointer location on the document
 	    var x = event.pageX - (window.innerWidth-600)/2 - 2 + " X"; 
@@ -89,11 +92,16 @@
 	    document.getElementById("demopointxx").innerHTML = x;
 	    document.getElementById("demopointyy").innerHTML = y;
 
-		var xpointer = event.pageX;
-		var ypointer = event.pageY;
+		var xpointer = x;
+		document.getElementById("circ").style.left = (event.pageX).toString() + "px";
+		document.getElementById("circ").style.top = (event.pageY).toString() + "px";
+		document.getElementById("square").style.left = (x).toString() + "px";
+		// document.getElementById("square").style.left = (x).toString() + "px";
+	};
+		// var ypointer = event.pageY;
 
-		var left_sq = document.getElementById("square").style.left
-		document.getElementById("sq_left").innerHTML = "sq_left " + left_sq;		
+		// var left_sq = document.getElementById("square").style.left
+		// document.getElementById("sq_left").innerHTML = "sq_left " + left_sq;		
 
 	// EDGES OF BOX
 	// top left 316x 116y
@@ -103,25 +111,28 @@
 
 
 		//restrict the pointer in order to restrain movement
-		if (xpointer<=416){ xpointer = 416}; // remember xpointer number skewed by 100
-		if (xpointer>=816){ xpointer = 816};
+		// if (x<=313){ x = 313}; // remember xpointer number skewed by 100
+		// if (x>=353){ x = 353};
 
-		if (ypointer<=166){ ypointer = 166}; // remember ypointer number skewed by 130
-		if (ypointer>=376){ ypointer = 376};
+		// if (y<=166){ y = 166}; // remember ypointer number skewed by 130
+		// if (y>=376){ y = 376};
 
 		// xpoint -40 ypoint -210
 
-		var movex_quarter = (xpointer-1750)*.25 + 278
+	// **ACTIVE 	var movex_quarter = x*.25 + 278
 //		var movex_quarter = (xpointer-1750)*.25 + 278
-		var movex_half = (xpointer-1080)*.5 + 200
+	// **ACTIVE  	var movex_half = x*.5 + 200
 		// var movex = (epiX-100) - (xpointer-100) + (epiX-100);
 
-		document.getElementById("square").style.left = (xpointer-635).toString() + "px";
-//		document.getElementById("square").style.left = (xpointer-635).toString() + "px";
-		document.getElementById("square_2").style.left = (movex_half).toString() + "px";
-		document.getElementById("square_3").style.left = (movex_quarter).toString() + "px";
-		document.getElementById("square2").style.left = (movex_half).toString() + "px";
-		document.getElementById("square3").style.left = (movex_quarter + 5).toString() + "px";
+		//document.getElementById("square").style.left = (xpointer).toString() + "px";
+
+
+		//** ACTIVE
+		// document.getElementById("square").style.left = (x).toString() + "px";
+		// document.getElementById("square_2").style.left = (movex_half).toString() + "px";
+		// document.getElementById("square_3").style.left = (movex_quarter).toString() + "px";
+		// document.getElementById("square2").style.left = (movex_half).toString() + "px";
+		// document.getElementById("square3").style.left = (movex_quarter + 5).toString() + "px";
 
 
 		// var movey = (epiY-130) - (ypointer-130) + (epiY-130);
@@ -134,35 +145,35 @@
 		//var movey_quarter = (ypointer-2610)*.4 + 278
 		//var movey_quarter = (ypointer-2210)*.5 + 278
 		//var movey_quarter = (ypointer-1810)*.6 + 278
-		var movey_quarter = (ypointer-4090)*.25 - 228
+		var movey_quarter = (y)*.25 - 228
 //		var movey_quarter = (ypointer-4090)*.25 - 228
 
 		//below all good for square_2
-		var movey_half = (ypointer-1500)*.5 - 108
+		var movey_half = (y)*.5 - 1008
 		//below was last valid y pos - 2.39pm 7.26.2015
 
-		var movey_threequart = (ypointer-1900)*.75
+		var movey_threequart = (y)*.75 - 2000
 
 //		document.getElementById("square").style.top = (ypointer-425).toString() + "px";
 
-		var top_sq = document.getElementById("square").style.top
-		document.getElementById("sq_top").innerHTML = "sq_top " + top_sq;
+		//var top_sq = document.getElementById("square").style.top
+	//	document.getElementById("sq_top").innerHTML = "sq_top " + top_sq;
 		
 //ypointer-425
-		document.getElementById("square").style.top = (movey_quarter+1000).toString() + "px";
-		document.getElementById("square_2").style.top = (movey_half).toString() + "px";
-		document.getElementById("square_3").style.top = (movey_threequart).toString() + "px";
-		document.getElementById("square2").style.top = (ypointer-350).toString() + "px";
-		document.getElementById("square3").style.top = (ypointer-370).toString() + "px";
+	//	document.getElementById("square").style.top = (movey_quarter+400).toString() + "px";
+	//	document.getElementById("square_2").style.top = (movey_half).toString() + "px";
+	//	document.getElementById("square_3").style.top = (movey_threequart).toString() + "px";
+	//	document.getElementById("square2").style.top = (y-350).toString() + "px";
+	//	document.getElementById("square3").style.top = (y-370).toString() + "px";
 
 
-		var movex_half = ((epiX-100) - (xpointer-100))/2 + (epiX-100);
+		//var movex_half = ((epiX-100) - (x-100))/2 + (epiX-100);
 
-		var movey_half = ((epiY-130) - (ypointer-130))/2 + (epiY-130);
+		//var movey_half = ((epiY-130) - (y-130))/2 + (epiY-130);
 
 		// document.getElementById("mydiv2").style.left = (movex_half).toString() + "px";
 		// document.getElementById("mydiv2").style.top = (movey_half).toString() + "px";
-	}
+	//}
 
 	function clearCoor() {
 	    document.getElementById("demopointxx").innerHTML = " X";
