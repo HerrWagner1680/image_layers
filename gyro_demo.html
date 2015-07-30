@@ -86,50 +86,70 @@ No device motion data
 // });
 
 document.addEventListener("mousedown", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
         if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mousedown guilty of 0"}
 });
 
 document.addEventListener("mousemove", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
         if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mousemove guilty of 0"}
 });
 
 document.addEventListener("mouseout", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
       if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseout guilty of 0"}
 });
 
 document.addEventListener("mouseover", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
         if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseover guilty of 0"}
 });
 
 document.addEventListener("mouseenter", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
       if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseenter guilty of 0"}
 });
 
 document.addEventListener("mouseleave", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
       if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseleave guilty of 0"}
 });
 
 document.addEventListener("touchstart", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
       if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchstart guilty of 0"}
 });
 
 document.addEventListener("touchmove", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
       if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchmove guilty of 0"}
 });
 document.addEventListener("touchend", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
       if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchend guilty of 0"}
 });
 document.addEventListener("touchcancel", function(){
-        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        evx = event.pageX
+        evy = event.pageY
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
       if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchcancel guilty of 0"}
 });
 
