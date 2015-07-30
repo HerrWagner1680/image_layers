@@ -9,6 +9,17 @@
   position: fixed;
   overflow: hidden;
 }
+
+#rotate_square {
+  width: 200px;
+  height: 100px;
+  background: red;
+}
+#rotate_square {
+  width: 400px;
+  height: 50px;
+  background: blue;
+}
 /*.orientleft {
     -webkit-transform: rotate(-90deg);
     -webkit-transform-origin:160px 160px;
@@ -30,6 +41,9 @@ No device motion data
 <div id="orientation"></div>
 <div id="orientation2"></div>
 <div id="orientation3"></div>
+
+<div id="rotate_square"></div>
+<div id="rotate_square2"></div>
 <script>
 // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
 
@@ -66,7 +80,8 @@ if(window.innerHeight > window.innerWidth){
     // document.getElementById("body_id").style.transform = "rotate(-90deg)";
     document.getElementById("orientation3").innerHTML = "portrait position";
 } else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position";
-document.getElementById("body_id").style.transform = "rotate(-90deg)"; }
+//document.getElementById("body_id").style.transform = "rotate(-90deg)"; 
+}
 }, 100);
 
 function init() {
@@ -78,9 +93,14 @@ if(window.DeviceOrientationEvent) {
                 var beta = Math.round(event.beta*1000)/1000;
                 var gamma = Math.round(event.gamma*1000)/1000;
                
+ document.getElementById("rotate_square").style.transform = "rotate(" + (gamma-gamma*2) + "deg)";
+document.getElementById("rotate_square2").style.transform = "rotate(" + (alpha) + "deg)";
                 if(alpha!=null || beta!=null || gamma!=null) 
                   dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
               }, false);
+  // if(gamma=null){gamma = 0}
+  // document.getElementById("rotate_square").style.transform = "rotate(" + gamma + "deg)";
+
   }
 
 // if(window.DeviceMotionEvent) {
