@@ -94,7 +94,11 @@ if(window.DeviceOrientationEvent) {
                 var gamma = Math.round(event.gamma*1000)/1000;
                
  document.getElementById("rotate_square").style.transform = "rotate(" + (gamma-gamma*2) + "deg)";
-document.getElementById("rotate_square2").style.transform = "rotate(" + (alpha) + "deg)";
+document.getElementById("rotate_square2").style.webkitTransform = "rotate(" + alpha + "deg)";
+document.getElementById("rotate_square2").style.MozTransform = "rotate(" + alpha + "deg)";
+document.getElementById("rotate_square2").style.msTransform = "rotate(" + alpha + "deg)";
+document.getElementById("rotate_square2").style.OTransform = "rotate(" + alpha + "deg)";
+document.getElementById("rotate_square2").style.transform = "rotate(" + alpha + "deg)";
                 if(alpha!=null || beta!=null || gamma!=null) 
                   dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
               }, false);
