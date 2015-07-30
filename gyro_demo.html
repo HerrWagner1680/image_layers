@@ -45,9 +45,12 @@
 // }, true);
 
 if(window.innerHeight > window.innerWidth){
-    document.getElementById("body_id").style.transform = "rotate(-90deg)";
+    // document.getElementById("body_id").style.transform = "rotate(-90deg)";
+    document.getElementById("orientation3").innerHTML = "portrait position";
 }
 
+document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
+document.getElementById("orientation2").innerHTML = window.innerWidth + "inner width";
 
 function init() {
 var dataContainerOrientation = document.getElementById('dataContainerOrientation');
@@ -102,6 +105,9 @@ No device orientation data
 <div id="dataContainerMotion">
 No device motion data
 </div>
+<div id="orientation"></div>
+<div id="orientation2"></div>
+<div id="orientation3"></div>
 </body>
 </html>
 <!-- downloaded from https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events -->
