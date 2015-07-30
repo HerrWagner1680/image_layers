@@ -19,6 +19,17 @@
     -webkit-transform-origin:230px 230px;
 } */
 </style>
+</head>
+<body id="body_id" onload="init()">
+<div id="dataContainerOrientation">
+No device orientation data
+</div>
+<div id="dataContainerMotion">
+No device motion data
+</div>
+<div id="orientation"></div>
+<div id="orientation2"></div>
+<div id="orientation3"></div>
 <script>
 // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
 
@@ -49,8 +60,8 @@ if(window.innerHeight > window.innerWidth){
     document.getElementById("orientation3").innerHTML = "portrait position";
 }
 
-document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
-document.getElementById("orientation2").innerHTML = window.innerWidth + "inner width";
+setInterval(function(){ document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
+document.getElementById("orientation2").innerHTML = window.innerWidth + "inner width";}, 100);
 
 function init() {
 var dataContainerOrientation = document.getElementById('dataContainerOrientation');
@@ -97,17 +108,7 @@ if(window.DeviceOrientationEvent) {
 
 
 </script>
-</head>
-<body id="body_id" onload="init()">
-<div id="dataContainerOrientation">
-No device orientation data
-</div>
-<div id="dataContainerMotion">
-No device motion data
-</div>
-<div id="orientation"></div>
-<div id="orientation2"></div>
-<div id="orientation3"></div>
+
 </body>
 </html>
 <!-- downloaded from https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events -->
