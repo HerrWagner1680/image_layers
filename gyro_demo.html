@@ -5,7 +5,7 @@
 <style>
 #dataContainerOrientation{ font-size: 50px;}
 
-.orientleft {
+/*.orientleft {
     -webkit-transform: rotate(-90deg);
     -webkit-transform-origin:160px 160px;
 }
@@ -13,7 +13,7 @@
 .orientright {
     -webkit-transform: rotate(90deg);
     -webkit-transform-origin:230px 230px;
-} 
+} */
 </style>
 <script>
 // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
@@ -28,17 +28,21 @@
 
 // screen.lockOrientation('landscape');
 
-window.addEventListener('onorientationchange', function () {
-    if (window.orientation == -90) {
-        document.getElementById('orient').className = 'orientright';
-    }
-    if (window.orientation == 90) {
-        document.getElementById('orient').className = 'orientleft';
-    }
-    if (window.orientation == 0) {
-        document.getElementById('orient').className = '';
-    }
-}, true);
+// window.addEventListener('onorientationchange', function () {
+//     if (window.orientation == -90) {
+//         document.getElementById('orient').className = 'orientright';
+//     }
+//     if (window.orientation == 90) {
+//         document.getElementById('orient').className = 'orientleft';
+//     }
+//     if (window.orientation == 0) {
+//         document.getElementById('orient').className = '';
+//     }
+// }, true);
+
+if(window.innerHeight > window.innerWidth){
+    document.getElementsByTagName("body").style.transform = "rotate(90deg)";
+}
 
 
 function init() {
