@@ -12,14 +12,13 @@
 
 html {-webkit-text-size-adjust:none}
 
-#rotate_square {
+/*#rotate_square {
   width: 200px;
   height: 100px;
   background: red;
   -webkit-transform: rotate(25deg);
-}
+}*/
 #rotate_square {
-  top: 500px;
   width: 400px;
   height: 50px;
   background: blue;
@@ -43,6 +42,7 @@ No device orientation data
 <div id="dataContainerMotion">
 No device motion data
 </div>
+<div id="ave"></div>
 <div id="orientation"></div>
 <div id="orientation2"></div>
 <div id="orientation3"></div>
@@ -89,6 +89,9 @@ if(window.innerHeight > window.innerWidth){
 }
 }, 100);
 
+
+
+
 function init() {
 var dataContainerOrientation = document.getElementById('dataContainerOrientation');
 var dataContainerMotion = document.getElementById('dataContainerMotion');
@@ -97,19 +100,27 @@ if(window.DeviceOrientationEvent) {
                 var alpha = Math.round(event.alpha*1000)/1000;
                 var beta = Math.round(event.beta*1000)/1000;
                 var gamma = Math.round(event.gamma*1000)/1000;
-               
+              
+  //USE Math.abs(number) to get positive only values
  //document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (gamma-gamma*2) + "deg)";
  document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (alpha) + "deg)";
+document.getElementById("rotate_square").style.marginLeft = gamma + "px";
+document.getElementById("rotate_square").style.marginTop = beta + "px";
 // document.getElementById("rotate_square2").style.webkitTransform = "rotate(" + alpha + "deg)";
 // document.getElementById("rotate_square2").style.MozTransform = "rotate(" + alpha + "deg)";
 // document.getElementById("rotate_square2").style.msTransform = "rotate(" + alpha + "deg)";
 // document.getElementById("rotate_square2").style.OTransform = "rotate(" + alpha + "deg)";
 // document.getElementById("rotate_square2").style.transform = "rotate(" + alpha + "deg)";
+
+// setInterval(function(){ document.getElementById("ave").innerHTML = "AVE...alpha " + alpha + "beta " + beta + "gamma " + gamma;}, 1000);
+
                 if(alpha!=null || beta!=null || gamma!=null) 
                   dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
               }, false);
   // if(gamma=null){gamma = 0}
   // document.getElementById("rotate_square").style.transform = "rotate(" + gamma + "deg)";
+
+
 
   }
 
