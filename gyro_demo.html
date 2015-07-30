@@ -4,6 +4,16 @@
 <head>
 <style>
 #dataContainerOrientation{ font-size: 50px;}
+
+.orientleft #shell {
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:160px 160px;
+}
+
+.orientright #shell {
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin:230px 230px;
+} 
 </style>
 <script>
 // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
@@ -16,7 +26,19 @@
 //   // orientation lock failed
 // }
 
-screen.lockOrientation('landscape');
+// screen.lockOrientation('landscape');
+
+window.addEventListener('onorientationchange', function () {
+    if (window.orientation == -90) {
+        document.getElementById('orient').className = 'orientright';
+    }
+    if (window.orientation == 90) {
+        document.getElementById('orient').className = 'orientleft';
+    }
+    if (window.orientation == 0) {
+        document.getElementById('orient').className = '';
+    }
+}, true);
 
 
 function init() {
