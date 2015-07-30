@@ -95,8 +95,13 @@
 		var xpointer = x;
 		document.getElementById("circ").style.left = (event.pageX).toString() + "px";
 		document.getElementById("circ").style.top = (event.pageY).toString() + "px";
-		document.getElementById("square").style.left = (x).toString() + "px";
-		// document.getElementById("square").style.left = (x).toString() + "px";
+		document.getElementById("square").style.left = (event.pageX-700).toString() + "px";
+		document.getElementById("square").style.top = (event.pageY-400).toString() + "px";
+
+		document.getElementById("square_2").style.left = (event.pageX-700).toString() + "px";
+		document.getElementById("square_2").style.top = (event.pageY-900).toString() + "px";
+		document.getElementById("square_3").style.left = (event.pageX-700).toString() + "px";
+		document.getElementById("square_3").style.top = (event.pageY-1400).toString() + "px";
 	};
 		// var ypointer = event.pageY;
 
