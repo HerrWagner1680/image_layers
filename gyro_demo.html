@@ -41,7 +41,7 @@
 // }, true);
 
 if(window.innerHeight > window.innerWidth){
-    document.getElementsByTagName("body").style.transform = "rotate(90deg)";
+    document.getElementById("body_id").style.transform = "rotate(-90deg)";
 }
 
 
@@ -91,7 +91,7 @@ if(window.DeviceOrientationEvent) {
 
 </script>
 </head>
-<body onload="init()">
+<body id="body_id" onload="init()">
 <div id="dataContainerOrientation">
 No device orientation data
 </div>
