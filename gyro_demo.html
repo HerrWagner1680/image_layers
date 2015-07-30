@@ -81,25 +81,87 @@ No device motion data
 //     document.getElementById("orientation3").innerHTML = "portrait position";
 // } else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position"; }
 
+// document.addEventListener("click", function(){
+//         document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+// });
+
+document.addEventListener("mousedown", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mousedown guilty of 0"}
+});
+
+document.addEventListener("mousemove", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mousemove guilty of 0"}
+});
+
+document.addEventListener("mouseout", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+      if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseout guilty of 0"}
+});
+
+document.addEventListener("mouseover", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+        if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseover guilty of 0"}
+});
+
+document.addEventListener("mouseenter", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+      if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseenter guilty of 0"}
+});
+
+document.addEventListener("mouseleave", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+      if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "mouseleave guilty of 0"}
+});
+
+document.addEventListener("touchstart", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+      if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchstart guilty of 0"}
+});
+
+document.addEventListener("touchmove", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+      if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchmove guilty of 0"}
+});
+document.addEventListener("touchend", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+      if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchend guilty of 0"}
+});
+document.addEventListener("touchcancel", function(){
+        document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+      if (event.pageY = 0){ document.getElementById("ave_xy").innerHTML = "touchcancel guilty of 0"}
+});
+
+// touchmove
+// touchend
+// touchcancel
+// mouseup
+// mousemove
+// mouseover
+// mouseout
+// mouseenter
+// mouseleave
+
   function mousey(event){
     document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
   }
 
     // var pointerEventToXY = function(e){
-    document.addEventListener('touchstart', function(event){
-      var out = {x:0, y:0};
-      if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
-        var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
-        out.x = touch.pageX;
-        out.y = touch.pageY;
-      } else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
-        out.x = e.pageX;
-        out.y = e.pageY;
-      }
-      alert("LINE 99");
-      document.getElementById("ave_xy").innerHTML = out.x +"x " + out.y + "y ";
-      return out;
-    });
+    // document.addEventListener('touchstart', function(event){
+    //   var out = {x:0, y:0};
+    //   if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
+    //     var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+    //     out.x = touch.pageX;
+    //     out.y = touch.pageY;
+    //   } else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover'|| e.type=='mouseout' || e.type=='mouseenter' || e.type=='mouseleave') {
+    //     out.x = e.pageX;
+    //     out.y = e.pageY;
+    //   }
+    //   alert("LINE 99");
+    //   document.getElementById("ave_xy").innerHTML = out.x +"x " + out.y + "y ";
+    //   return out;
+    // });
 
 
 setInterval(function(){ document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
