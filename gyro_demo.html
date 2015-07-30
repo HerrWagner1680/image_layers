@@ -35,7 +35,7 @@ html {-webkit-text-size-adjust:none}
 } */
 </style>
 </head>
-<body id="body_id" onload="init()" onmousedown="mousey()" ontouchstart="mousey()">
+<body id="body_id" onload="init()" onmousedown="mousey(event)" ontouchstart="mousey(event)">
 <!-- <body id="body_id" onload="init()" onmousedown="moving()" ontouchstart="moving()"> -->
 <div id="dataContainerOrientation">
 No device orientation data
@@ -81,12 +81,12 @@ No device motion data
 //     document.getElementById("orientation3").innerHTML = "portrait position";
 // } else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position"; }
 
-  function mousedown(){
-    alert("X")
+  function mousey(event){
+    document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
   }
 
     // var pointerEventToXY = function(e){
-    document.addEventListener('mousedown touchstart', function(e){
+    document.addEventListener('touchstart', function(event){
       var out = {x:0, y:0};
       if(e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel'){
         var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
@@ -96,7 +96,7 @@ No device motion data
         out.x = e.pageX;
         out.y = e.pageY;
       }
-
+      alert("LINE 99");
       document.getElementById("ave_xy").innerHTML = out.x +"x " + out.y + "y ";
       return out;
     });
