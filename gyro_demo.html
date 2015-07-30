@@ -65,7 +65,8 @@ document.getElementById("orientation2").innerHTML = window.innerWidth + "inner w
 if(window.innerHeight > window.innerWidth){
     // document.getElementById("body_id").style.transform = "rotate(-90deg)";
     document.getElementById("orientation3").innerHTML = "portrait position";
-} else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position"; }
+} else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position";
+document.getElementById("body_id").style.transform = "rotate(-90deg)"; }
 }, 100);
 
 function init() {
