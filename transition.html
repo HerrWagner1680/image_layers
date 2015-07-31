@@ -15,7 +15,7 @@
 		<p id="sq_top"></p>
 	</div>
 
-	<div id="circ"></div>
+<!-- 	<div id="circ"></div> -->
 
 	<div class="container">
 		<div id="one">1<p class="dot"></p><p id="square"></p><p id="square_2"></p><p id="square_3"></p></div>
@@ -106,15 +106,20 @@ setInterval(function(){
 	    document.getElementById("demopointyy").innerHTML = "Y: " + y;
 
 		var xpointer = x;
-		document.getElementById("circ").style.left = (event.pageX).toString() + "px";
-		document.getElementById("circ").style.top = (event.pageY).toString() + "px";
-		document.getElementById("square").style.left = (event.pageX-700).toString() + "px";
-		document.getElementById("square").style.top = (event.pageY-400).toString() + "px";
+		var ypointer = y;
+		// REMEMBER - box is 600 wide and 320 high
+		// moving object squares are 700 wide by 500 high
+		// document.getElementById("circ").style.left = (event.pageX).toString() + "px";
+		// document.getElementById("circ").style.top = (event.pageY).toString() + "px";
 
-		document.getElementById("square_2").style.left = (event.pageX-700).toString() + "px";
-		document.getElementById("square_2").style.top = (event.pageY-900).toString() + "px";
-		document.getElementById("square_3").style.left = (event.pageX-700).toString() + "px";
-		document.getElementById("square_3").style.top = (event.pageY-1400).toString() + "px";
+		//keep the numbers sep do not combine the notation gets too confusing to read
+		document.getElementById("square").style.left = (xpointer-350+280).toString() + "px";
+		document.getElementById("square").style.top = (ypointer-250+128).toString() + "px";
+
+		document.getElementById("square_2").style.left = (xpointer-350+280).toString() + "px";
+		document.getElementById("square_2").style.top = (ypointer-800+128).toString() + "px";
+		document.getElementById("square_3").style.left = (xpointer-350+280).toString() + "px";
+		document.getElementById("square_3").style.top = (ypointer-1350+128).toString() + "px";
 	};
 		// var ypointer = event.pageY;
 
