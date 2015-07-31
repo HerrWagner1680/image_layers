@@ -72,7 +72,7 @@ body{
 	width: 700px;
 	height: 500px;
 /*	background: #ddd;*/
-	opacity: 0.1;
+	opacity: 1.0;
 }
 #square2{
 	position: relative;
@@ -80,7 +80,7 @@ body{
 	width: 500px;
 	height: 300px;
 	background: #ddd;
-	opacity: 0.2;
+	opacity: 1.0;
 }
 #square3{
 	position: relative;
@@ -88,7 +88,7 @@ body{
 	width: 600px;
 	height: 350px;
 	background: #ddd;
-	opacity: 0.2;
+	opacity: 1.0;
 }
 
 .dot{
@@ -108,7 +108,7 @@ body{
 
 #one{
 	position: relative;
-/*	overflow: hidden;*/
+	overflow: hidden;
 	text-align: center;
 	width: 600px;
 	height: 320px;

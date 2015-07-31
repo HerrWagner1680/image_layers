@@ -113,13 +113,17 @@ setInterval(function(){
 		// document.getElementById("circ").style.top = (event.pageY).toString() + "px";
 
 		//keep the numbers sep do not combine the notation gets too confusing to read
-		document.getElementById("square").style.left = (xpointer-350+280).toString() + "px";
-		document.getElementById("square").style.top = (ypointer-250+128).toString() + "px";
+		//COMMENTED OUT VERSION BELOW FOLLOWS ARROW
+		// document.getElementById("square").style.left = (xpointer-350+280).toString() + "px";
+		// document.getElementById("square").style.top = (ypointer-250+128).toString() + "px";
 
-		document.getElementById("square_2").style.left = (xpointer-350+280).toString() + "px";
-		document.getElementById("square_2").style.top = (ypointer-800+128).toString() + "px";
-		document.getElementById("square_3").style.left = (xpointer-350+280).toString() + "px";
-		document.getElementById("square_3").style.top = (ypointer-1350+128).toString() + "px";
+		document.getElementById("square").style.left = (-350+280-(xpointer*.2)).toString() + "px";
+		document.getElementById("square").style.top = (-250+128-(ypointer*.2)).toString() + "px";
+
+		document.getElementById("square_2").style.left = (-350+280-(xpointer*.5)).toString() + "px";
+		document.getElementById("square_2").style.top = (-800+128-(ypointer*.5)).toString() + "px";
+		document.getElementById("square_3").style.left = (-350+280-(xpointer*.8)).toString() + "px";
+		document.getElementById("square_3").style.top = (-1350+128-(ypointer*.8)).toString() + "px";
 	};
 		// var ypointer = event.pageY;
 
