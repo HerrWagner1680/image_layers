@@ -47,7 +47,7 @@ body{
 	width: 700px;
 	height: 500px;
 /*	background: #ddd;*/
-	opacity: 0.9;
+	opacity: 0.1;
 }
 #square_2{
 	position: relative;
@@ -60,7 +60,7 @@ body{
 	height: 500px;
 
 	/*background: #ddd;*/
-	opacity: 0.9;
+	opacity: 0.1;
 }
 #square_3{
 	position: relative;
@@ -72,7 +72,7 @@ body{
 	width: 700px;
 	height: 500px;
 /*	background: #ddd;*/
-	opacity: 0.9;
+	opacity: 0.1;
 }
 #square2{
 	position: relative;
@@ -94,7 +94,7 @@ body{
 .dot{
 	position: relative;
 	left: 299px;
-	top: 103px;
+	top: 123px;
 	width: 5px;
 	height: 5px;
 	background: black;
@@ -110,9 +110,8 @@ body{
 	position: relative;
 /*	overflow: hidden;*/
 	text-align: center;
-	padding-top: 20px;
 	width: 600px;
-	height: 300px;
+	height: 320px;
 	margin: 0 auto;
 	background: orange;
 	color: white;
@@ -128,9 +127,8 @@ body{
 /*	overflow: hidden;*/
 	text-align: center;
 	top: -320px;
-	padding-top: 20px;
 	width: 600px;
-	height: 300px;
+	height: 320px;
 	margin: 0 auto;
 	background: green;
 	color: white;
@@ -145,10 +143,9 @@ body{
 	position: relative;
 /*	overflow: hidden;*/
 	text-align: center;
-	padding-top: 20px;
 	top: -640px;
 	width: 600px;
-	height: 300px;
+	height: 320px;
 	margin: 0 auto;
 	background: blue;
 	color: white;

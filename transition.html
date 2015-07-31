@@ -66,10 +66,18 @@
 	// You want the objects to move in the opposite direction from the pointer
 	// Default epicenter 450x 300y
 
-	var left_margin = (window.innerWidth-600)/2 - 8
+setInterval(function(){
+	var left_margin = (window.innerWidth-600)/2 - 8 + 10.5 // 10.5 is unexplained diff
 
-	var epiX = 515
-	var epiY = 280
+
+	// #one is 600px wide and 300px(actually 320px) high
+	// console.log( document.getElementById('one').style.width )
+	// console.log( document.getElementById('one').style.height )
+
+	epiX = left_margin + 300 
+	epiY = 285 + 2 // header is 100px plus 320px/2 = 125 + 160 = 285px 
+	//the 2 is unexplained diff
+
 	function epiLocation(){ epiX = event.pageX; epiY = event.pageY; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
 		document.getElementById("plus_sign").style.top = (epiY-30).toString() + "px";
 		document.getElementById("plus_sign").style.left = (epiX-6).toString() + "px";
@@ -81,16 +89,21 @@
 	//document.getElementById("demopointxx").innerHTML = "xx";
 	//document.getElementById("demopointyy").innerHTML = "yy";
 
+	}, 100);
+
 
 	var left_margin = (window.innerWidth-600)/2 - 8
 
 	var y = 0;
 	function showCoords(event) {
 		// pointer location on the document
-	    var x = event.pageX - (window.innerWidth-600)/2 - 2 + " X"; 
-	    var y = event.pageY - 120 + " Y"; // 120px is height of header
-	    document.getElementById("demopointxx").innerHTML = x;
-	    document.getElementById("demopointyy").innerHTML = y;
+	    // var x = event.pageX - (window.innerWidth-600)/2 - 2 + " X"; 
+	    // var y = event.pageY - 120 + " Y"; // 120px is height of header
+
+	    var x = event.pageX - epiX
+	    var y = event.pageY - epiY
+	    document.getElementById("demopointxx").innerHTML = "X: " + x;
+	    document.getElementById("demopointyy").innerHTML = "Y: " + y;
 
 		var xpointer = x;
 		document.getElementById("circ").style.left = (event.pageX).toString() + "px";
