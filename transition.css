@@ -47,7 +47,7 @@ body{
 	width: 700px;
 	height: 500px;
 /*	background: #ddd;*/
-	opacity: 0.4;
+	opacity: 1.0;
 }
 #square_2{
 	position: relative;
@@ -60,7 +60,7 @@ body{
 	height: 500px;
 
 	/*background: #ddd;*/
-	opacity: 0.1;
+	opacity: 1.0;
 }
 #square_3{
 	position: relative;
