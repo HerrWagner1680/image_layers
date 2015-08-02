@@ -5,8 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="transition.css">
 	<title>Transition</title>
 </head>
-<body id="the_body" onmousemove="showCoords(event)" onmouseout="clearCoor()">
-
+<!-- <body id="the_body" onmousemove="showCoords(event)" onmouseout="clearCoor()"> -->
+<body id="the_body" onmouseout="clearCoor()">
 	<div id="header">	
 		<p id="epicenter"></p> 
 		<p id="demopointxx"></p>
@@ -75,8 +75,8 @@ setInterval(function(){
 	// console.log( document.getElementById('one').style.height )
 
 	epiX = left_margin + 300 
-	epiY = 285 + 2 // header is 100px plus 320px/2 = 125 + 160 = 285px 
-	//the 2 is unexplained diff
+	epiY = 100 + 160 // header is 100px plus 
+	// only if you do relative ... -40 dot is top of page (text throws it off) --- 280px is bottom epicenter 160 + (-40) = 120
 
 	function epiLocation(){ epiX = event.pageX; epiY = event.pageY; document.getElementById("epicenter").innerHTML = "EPICENTER: " + epiX + "X " + epiY + "Y ";
 		document.getElementById("plus_sign").style.top = (epiY-30).toString() + "px";
@@ -94,8 +94,34 @@ setInterval(function(){
 
 	var left_margin = (window.innerWidth-600)/2 - 8
 
+// document.addEventListener("mousedown", function(){
+// 		showCoords();
+// });
+
+document.addEventListener("mousemove", function(){
+		showCoords();
+});
+
+// document.addEventListener("mouseover", function(){
+// 		showCoords();
+// });
+
+// document.addEventListener("mouseenter", function(){
+// 		showCoords();
+// });
+
+document.addEventListener("touchstart", function(){
+		showCoords();
+});
+
+document.addEventListener("touchmove", function(){
+		showCoords();
+});
+
+
 	var y = 0;
-	function showCoords(event) {
+	// function showCoords(event) {
+	function showCoords() {
 		// pointer location on the document
 	    // var x = event.pageX - (window.innerWidth-600)/2 - 2 + " X"; 
 	    // var y = event.pageY - 120 + " Y"; // 120px is height of header
@@ -107,6 +133,13 @@ setInterval(function(){
 
 		var xpointer = x;
 		var ypointer = y;
+
+		if (xpointer >= 300){ xpointer = 300 };
+		if (xpointer <= -300){ xpointer = -300 };
+
+		if (ypointer >= 120){ ypointer = 120 };
+		if (ypointer <= -120){ ypointer = -120 };
+
 		// REMEMBER - box is 600 wide and 320 high
 		// moving object squares are 700 wide by 500 high
 		// document.getElementById("circ").style.left = (event.pageX).toString() + "px";
@@ -117,13 +150,14 @@ setInterval(function(){
 		// document.getElementById("square").style.left = (xpointer-350+280).toString() + "px";
 		// document.getElementById("square").style.top = (ypointer-250+128).toString() + "px";
 
-		document.getElementById("square").style.left = (-350+280-(xpointer*.2)).toString() + "px";
-		document.getElementById("square").style.top = (-250+128-(ypointer*.2)).toString() + "px";
+		document.getElementById("square").style.left = (-350+280+3-(xpointer*.2)*.29).toString() + "px";
+		document.getElementById("square").style.top = (-250+128-50-(ypointer*.2)*.2).toString() + "px";
 
-		document.getElementById("square_2").style.left = (-350+280-(xpointer*.5)).toString() + "px";
-		document.getElementById("square_2").style.top = (-800+128-(ypointer*.5)).toString() + "px";
-		document.getElementById("square_3").style.left = (-350+280-(xpointer*.8)).toString() + "px";
-		document.getElementById("square_3").style.top = (-1350+128-(ypointer*.8)).toString() + "px";
+		document.getElementById("square_2").style.left = (-350+280+22-(xpointer*.5)*.29).toString() + "px";
+		document.getElementById("square_2").style.top = (-800+128-22-(ypointer*.5)*.32).toString() + "px";
+
+		document.getElementById("square_3").style.left = (-350+280+65-(xpointer*.8)*.66).toString() + "px";
+		document.getElementById("square_3").style.top = (-1350+128+50-(ypointer*.8)*.6).toString() + "px";
 	};
 		// var ypointer = event.pageY;
 

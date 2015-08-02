@@ -1,6 +1,7 @@
 body{
 	background: #333;
 	overflow: hidden;
+	cursor: default;
 }
 /*#circ{
 	position: relative;
@@ -94,7 +95,7 @@ body{
 .dot{
 	position: relative;
 	left: 299px;
-	top: 123px;
+	top: 120px;
 	width: 5px;
 	height: 5px;
 	background: black;
@@ -104,6 +105,7 @@ body{
 #header{
 	width: 100px;
 	height: 100px;
+	cursor: default;
 }
 
 #one{
