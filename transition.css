@@ -41,7 +41,8 @@ body{
 
 #square{
 	position: relative;
-/*	left: 150px;*/
+	left: -84.4px;
+	top: -176.8px;
     background: url("dext1_r.png");
 /*	width: 450px;
 	height: 250px;*/
@@ -52,8 +53,8 @@ body{
 }
 #square_2{
 	position: relative;
-	top: -620px;
-	left: 200px;
+	left: -91.5px;
+	top: -713.2px;
     background: url("dext1_e.png");
 /*	width: 500px;
 	height: 300px;*/
@@ -65,8 +66,9 @@ body{
 }
 #square_3{
 	position: relative;
-	top: -1070px;
-	left: 200px;
+	left: -163.4px;
+	top: -1229.6px;
+
     background-image: url("dext1_b.png");
 /*	width: 600px;
 	height: 350px;*/
