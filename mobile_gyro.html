@@ -21,14 +21,30 @@
 		var dataContainerMotion = document.getElementById('dataContainerMotion');
 
 		// var rrr=0
-		if(window.DeviceOrientationEvent) {
-		
-		  window.addEventListener('deviceorientation', function(event) {
-		  	// rrr=rrr+1
-		                alpha = Math.round(event.alpha*1000)/1000;
-		                beta = Math.round(event.beta*1000)/1000;
-		                gamma = Math.round(event.gamma*1000)/1000;
 
+		// setInterval(function () {
+		// if(window.DeviceOrientationEvent) {
+		rrr = 0
+		var a = 0
+		var b = 0
+		var g = 0
+		window.addEventListener('deviceorientation', function(event) {
+			rrr=rrr+1
+			    a = Math.round(event.alpha*1000)/1000;
+                b = Math.round(event.beta*1000)/1000;
+                g = Math.round(event.gamma*1000)/1000;
+
+                a = a + a
+                console.log("a: " + a + "rrr " + rrr)
+                b = b + b
+                g = g + g
+			if (rrr%5!==0){ return }
+			rrr = 0
+				alpha = a/5  //averages readings groups of 5
+				beta = b/5
+				gamma = g/5
+
+		                qqq.alpha = -alpha
 		                qqq.beta = -beta
 		                qqq.gamma = -gamma
 
@@ -38,15 +54,27 @@
 
 		document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (alpha) + "deg)";
 		document.getElementById("rotate_square").style.marginLeft = qqq.gamma*9-gamma*9 + window.innerHeight * .7 + "px";
+		var lef = qqq.gamma*9-gamma*9 + window.innerHeight * .7
+		if (lef>= window.innerHeight){ document.getElementById("rotate_square").style.marginLeft = window.innerHeight + "px" }
+		if (lef<= 10){ document.getElementById("rotate_square").style.marginLeft = "10px"}
 		document.getElementById("rotate_square").style.marginTop =  qqq.beta*9-beta*9 - window.innerHeight/4 + "px";
+	    var top = qqq.beta*9-beta*9 - window.innerHeight/4 
+	    if (top>= window.innerHeight/4){ document.getElementById("rotate_square").style.marginTop = window.innerHeight/4 + "px"}
+	    if (top<= -250){ document.getElementById("rotate_square").style.marginTop = "-250px"}
 		// document.getElementById("rotate_square").style.marginLeft = gamma*3 + window.innerWidth/2 + "px";
 		// document.getElementById("rotate_square").style.marginTop = beta*3 - window.innerHeight/10 + "px";
-
+		// setTimeout(function(){
+		// 	//waiting
+		// 	}, 1000); 
 		        if(alpha!=null || beta!=null || gamma!=null) 
-	                 dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
+	                 dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + (alpha+qqq.alpha) + '<br/>beta: ' + (beta+qqq.beta) + '<br />gamma: ' + (gamma+qqq.gamma);
 	            }, false);
+
+		// }, 100);
+
 		}
-	}
+	// 	}
+	// }
 </script>
 </head>
 <!-- 	<body id="body_id" onload="init()" onmousedown="mousey(event)" ontouchstart="mousey(event)"> -->
@@ -79,8 +107,9 @@
 	function reset(event){
 		delete qqq
 		qqq = {}
-		qqq.beta = -beta
-		qqq.gamma = -gamma
+        qqq.alpha = -alpha
+        qqq.beta = -beta
+        qqq.gamma = -gamma
 		Object.freeze(qqq)
 		document.getElementById("ave_xy").innerHTML = "THAT'S A GOOD RESET, BUB" + "beta was: " + qqq.beta + "gamma was: " + qqq.gamma;
 		document.getElementById("reset_info").innerHTML = "R-B: " + qqq.beta + "R-G: " + qqq.gamma;
