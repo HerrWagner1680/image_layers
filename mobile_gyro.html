@@ -1,11 +1,41 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="mobile_gyro.css">
 	<title>Transition</title>
+<script>
+	function mousey(event){
+		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+	}
+
+	function init() {
+		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+		var dataContainerOrientation = document.getElementById('dataContainerOrientation');
+		var dataContainerMotion = document.getElementById('dataContainerMotion');
+
+		if(window.DeviceOrientationEvent) {
+		  window.addEventListener('deviceorientation', function(event) {
+		                var alpha = Math.round(event.alpha*1000)/1000;
+		                var beta = Math.round(event.beta*1000)/1000;
+		                var gamma = Math.round(event.gamma*1000)/1000;
+
+		                reset_beta = 0 - beta
+						reset_gamma = 0 - gamma;
+
+		document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (alpha) + "deg)";
+		document.getElementById("rotate_square").style.marginLeft = gamma + "px";
+		document.getElementById("rotate_square").style.marginTop = beta + "px";
+
+		        if(alpha!=null || beta!=null || gamma!=null) 
+	                 dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
+	            }, false);
+		}
+	}
+</script>
 </head>
-	<body id="body_id" onload="init()" onmousedown="mousey(event)" ontouchstart="mousey(event)">
+<!-- 	<body id="body_id" onload="init()" onmousedown="mousey(event)" ontouchstart="mousey(event)"> -->
+	<body id="body_id" onload="init()">
 		<div id="reset" onclick="reset()" ontouchstart="reset()">RESET DEVICE ORIENTATION</div>
 		<div id="dataContainerOrientation">
 		No device orientation data
@@ -18,45 +48,56 @@
 		<div id="orientation"></div>
 		<div id="orientation2"></div>
 		<div id="orientation3"></div>
+		<div id="reset_info"></div>
 
 		<div id="rotate_square"></div>
 		<div id="rotate_square2"></div>
-	</body>
+
+</body>		
 <script>
-	function mousey(event){
-		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
-	}
 
+// gamma = 0 + c
+// 0 = gamma - c
+// c = 0 - gamma
 	function reset(){
-		document.getElementById("ave_xy").innerHTML = "THAT'S A GOOD RESET, BUB";
-	}
+		document.getElementById("ave_xy").innerHTML = "THAT'S A GOOD RESET, BUB" + "beta was: " + reset_beta + "gamma was: " + reset_gamma;
+		document.getElementById("reset_info").innerHTML = "R-B: " + reset_beta + "R-G: " + reset_gamma;
+		// reset_beta = beta;
+		// reset_gamma = gamma;
+	};
 
-	document.addEventListener("mousemove", function(){
+	document.addEventListener("mousemove", function(event){
 	        evx = event.pageX
 	        evy = event.pageY
-	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
+	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + reset_beta + " mousemove" + reset_gamma
 	});
 
-	// document.addEventListener("mouseover", function(){
+	// document.addEventListener("mouseover", function(event){
 	//         evx = event.pageX
 	//         evy = event.pageY
-	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
+	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + reset_beta + " mouseover" + reset_gamma
 	// });
 
-	// document.addEventListener("mouseenter", function(){
+	// document.addEventListener("mouseenter", function(event){
 	//         evx = event.pageX
 	//         evy = event.pageY
-	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
+	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + reset_beta + " mouseenter " + reset_gamma
 	// });
 
 	document.addEventListener("touchstart", function(){
 			// event.preventDefault() ;
-			showCoords();
+			//showCoords();
+		    evx = event.pageX
+	        evy = event.pageY
+	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + reset_beta + " touchstart" + reset_gamma
 	});
 
 	document.addEventListener("touchmove", function(){
-			event.preventDefault() ;
-			showCoords();
+			// event.preventDefault() ;  // prevents scroll
+			//showCoords();
+		    evx = event.pageX
+	        evy = event.pageY
+	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + reset_beta + " touchmove" + reset_gamma
 	});
 
 	setInterval(function(){ document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
@@ -69,24 +110,6 @@
 		}
 	}, 100);
 
-	function init() {
-		var dataContainerOrientation = document.getElementById('dataContainerOrientation');
-		var dataContainerMotion = document.getElementById('dataContainerMotion');
 
-		if(window.DeviceOrientationEvent) {
-		  window.addEventListener('deviceorientation', function(event) {
-		                var alpha = Math.round(event.alpha*1000)/1000;
-		                var beta = Math.round(event.beta*1000)/1000;
-		                var gamma = Math.round(event.gamma*1000)/1000;
-
-		document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (alpha) + "deg)";
-		document.getElementById("rotate_square").style.marginLeft = gamma + "px";
-		document.getElementById("rotate_square").style.marginTop = beta + "px";
-
-		        if(alpha!=null || beta!=null || gamma!=null) 
-	                 dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
-	            }, false);
-		}
-	}
 </script>
 </html>
