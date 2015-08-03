@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="mobile_gyro.css">
+	<title>Transition</title>
+</head>
+	<body id="body_id" onload="init()" onmousedown="mousey(event)" ontouchstart="mousey(event)">
+		<div id="reset" onclick="reset()" ontouchstart="reset()">RESET DEVICE ORIENTATION</div>
+		<div id="dataContainerOrientation">
+		No device orientation data
+		</div>
+		<div id="dataContainerMotion">
+		No device motion data
+		</div>
+		<div id="ave"></div>
+		<div id="ave_xy">vcxzvcxz</div>
+		<div id="orientation"></div>
+		<div id="orientation2"></div>
+		<div id="orientation3"></div>
+
+		<div id="rotate_square"></div>
+		<div id="rotate_square2"></div>
+	</body>
+<script>
+	function mousey(event){
+		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+	}
+
+	function reset(){
+		document.getElementById("ave_xy").innerHTML = "THAT'S A GOOD RESET, BUB";
+	}
+
+	document.addEventListener("mousemove", function(){
+	        evx = event.pageX
+	        evy = event.pageY
+	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
+	});
+
+	// document.addEventListener("mouseover", function(){
+	//         evx = event.pageX
+	//         evy = event.pageY
+	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
+	// });
+
+	// document.addEventListener("mouseenter", function(){
+	//         evx = event.pageX
+	//         evy = event.pageY
+	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y";
+	// });
+
+	document.addEventListener("touchstart", function(){
+			// event.preventDefault() ;
+			showCoords();
+	});
+
+	document.addEventListener("touchmove", function(){
+			event.preventDefault() ;
+			showCoords();
+	});
+
+	setInterval(function(){ document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
+		document.getElementById("orientation2").innerHTML = window.innerWidth + "inner width";
+		if(window.innerHeight > window.innerWidth){
+		    // document.getElementById("body_id").style.transform = "rotate(-90deg)";
+		    document.getElementById("orientation3").innerHTML = "portrait position";
+		} else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position";
+		//document.getElementById("body_id").style.transform = "rotate(-90deg)"; 
+		}
+	}, 100);
+
+	function init() {
+		var dataContainerOrientation = document.getElementById('dataContainerOrientation');
+		var dataContainerMotion = document.getElementById('dataContainerMotion');
+
+		if(window.DeviceOrientationEvent) {
+		  window.addEventListener('deviceorientation', function(event) {
+		                var alpha = Math.round(event.alpha*1000)/1000;
+		                var beta = Math.round(event.beta*1000)/1000;
+		                var gamma = Math.round(event.gamma*1000)/1000;
+
+		document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (alpha) + "deg)";
+		document.getElementById("rotate_square").style.marginLeft = gamma + "px";
+		document.getElementById("rotate_square").style.marginTop = beta + "px";
+
+		        if(alpha!=null || beta!=null || gamma!=null) 
+	                 dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + alpha + '<br/>beta: ' + beta + '<br />gamma: ' + gamma;
+	            }, false);
+		}
+	}
+</script>
+</html>

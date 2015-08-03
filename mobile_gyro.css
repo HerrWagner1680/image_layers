@@ -1,0 +1,31 @@
+#reset {
+	width: 250px;
+	height: 30px;
+	padding-top: 15px;
+	border-radius: 5px;
+	background: green;
+	color: white;
+	font-family: sans-serif;
+	text-align: center;
+	vertical-align: middle;
+	opacity: 0.8;
+}
+
+#dataContainerOrientation{ font-size: 50px;}
+
+#body_id {
+  position: fixed;
+  overflow: hidden;
+  background: #ccc;
+  color: #333;
+}
+
+html {-webkit-text-size-adjust:none}
+
+#rotate_square {
+  width: 400px;
+  height: 50px;
+  background: blue;
+  opacity: 0.7;
+/*  -webkit-transform: rotate(25deg);*/
+}
