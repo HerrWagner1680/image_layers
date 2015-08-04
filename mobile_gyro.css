@@ -12,10 +12,6 @@
 	cursor: default;
 }
 
-.invisible{
-	display: none;
-}
-
 #rot{
 	background: #0099CC;
 	height: 30px;
@@ -51,6 +47,10 @@
 	overflow: hidden;
 	background: #ccc;
 	color: #333;
+/*	top: 100px;
+	-moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+	transform: rotate(90deg);*/
 }
 
 html {-webkit-text-size-adjust:none}
