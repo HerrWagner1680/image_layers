@@ -53,6 +53,37 @@
 	transform: rotate(90deg);*/
 }
 
+#ave{
+	position: relative;
+	border-color: #aaa;
+	width: 300px;
+	height: 200px;
+    border-width: 15px;	
+    border-style:solid;
+}
+
+#ave1{
+	position: relative;
+	top: -210px;
+	left: 20px;
+	border-color: #777;
+	width: 275px;
+	height: 175px;
+    border-width: 15px;	
+    border-style:solid;
+}
+
+#ave2{
+	position: relative;
+	top: -390px;
+	left: 40px;
+	border-color: #444;
+	width: 250px;
+	height: 150px;
+    border-width: 15px;	
+    border-style:solid;
+}
+
 html {-webkit-text-size-adjust:none}
 
 #rotate_square {

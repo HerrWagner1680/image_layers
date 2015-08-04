@@ -44,15 +44,34 @@
 		var top = -100
 
 		if (rt===false){
-			document.getElementById("rotate_square").style.left = -(qqq.gamma + gamma)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = -(qqq.beta + beta)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 70 -(qqq.gamma + gamma)*3 + lef + "px";
+			document.getElementById("rotate_square").style.top = -540 -(qqq.beta + beta)*3 + top + "px";
 			//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
+
+			document.getElementById("ave").style.left = -40 -(qqq.gamma + gamma)*2 + lef + "px";
+			document.getElementById("ave").style.top = -340 -(qqq.beta + beta)*2 + top + "px";
+
+			document.getElementById("ave1").style.left = -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -130 -(qqq.beta + beta)*1.5 + top + "px";
+
+			document.getElementById("ave2").style.left = -(qqq.gamma + gamma) + lef + "px";
+			document.getElementById("ave2").style.top = 60 -(qqq.beta + beta) + top + "px";
+
 			return;
 		} else {
 			// var top = 250
 			// var lef = -100
-			document.getElementById("rotate_square").style.left = (qqq.beta - beta)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = (qqq.gamma + gamma)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 70 + (qqq.beta - beta)*3 + lef + "px";
+			document.getElementById("rotate_square").style.top = -540 + (qqq.gamma + gamma)*3 + top + "px";
+
+			document.getElementById("ave").style.left = -40 + (qqq.beta - beta)*2 + lef + "px";
+			document.getElementById("ave").style.top = -340 + (qqq.gamma + gamma)*2 + top + "px";
+
+			document.getElementById("ave1").style.left = -20 + (qqq.beta - beta)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -130 + (qqq.gamma + gamma)*1.5 + top + "px";
+
+			document.getElementById("ave2").style.left = (qqq.beta - beta) + lef + "px";
+			document.getElementById("ave2").style.top = 60 + (qqq.gamma + gamma) + top + "px";
 		}
 
 
@@ -84,15 +103,16 @@
 	<!-- 	<div id="dataContainerMotion"> -->
 <!-- 		No device motion data -->
 	<!-- 	</div> -->
-
+		<div id="ave2"></div>
+		<div id="ave1"></div>
 		<div id="ave"></div>
 		<div id="ave_xy">vcxzvcxz</div>
-		<div id="orientation"></div>
-		<div id="orientation2"></div>
-		<div id="orientation3"></div>
+<!-- 		<div id="orientation"></div> -->
+<!-- 		<div id="orientation2"></div> -->
+<!-- 		<div id="orientation3"></div> -->
 		<div id="reset_info"></div>
 
-		<div id="one"></div>
+	<!-- 	<div id="one"></div> -->
 
 		<div id="rotate_square"></div>
 		<div id="rotate_square2"></div>
@@ -104,7 +124,7 @@
 	function rot(){
 		document.getElementById('ave_xy').innerHTML = "You hit rotate"
 		if (rt===false){
-			document.getElementById('body_id').style.top = "100px";
+			document.getElementById('body_id').style.top = "-280px";
 			document.getElementById('body_id').style.transform = "rotate(90deg)";
 			document.getElementById("body_id").style.webkitTransform = "rotate(90deg)";
 			document.getElementById("body_id").style.mozTransform = "rotate(90deg)";
@@ -139,15 +159,33 @@
 		// reset_gamma = gamma;
 
 		if (rt===false){
-			document.getElementById("rotate_square").style.left = -(qqq.gamma + gamma)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = -(qqq.beta + beta)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 70 -(qqq.gamma + gamma)*3 + lef + "px";
+			document.getElementById("rotate_square").style.top = -540 -(qqq.beta + beta)*3 + top + "px";
 			//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
+
+			document.getElementById("ave").style.left = -40 -(qqq.gamma + gamma)*2 + lef + "px";
+			document.getElementById("ave").style.top = -340 -(qqq.beta + beta)*2 + top + "px";
+
+			document.getElementById("ave1").style.left = -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -130 -(qqq.beta + beta)*1.5 + top + "px";
+
+			document.getElementById("ave2").style.left = -(qqq.gamma + gamma) + lef + "px";
+			document.getElementById("ave2").style.top = 60 -(qqq.beta + beta) + top + "px";
 			return;
 		} else {
 			// var top = 250
 			// var lef = -100
-			document.getElementById("rotate_square").style.left = (qqq.beta - beta)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = (qqq.gamma + gamma)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 70 + (qqq.beta - beta)*3 + lef + "px";
+			document.getElementById("rotate_square").style.top = -540 + (qqq.gamma + gamma)*3 + top + "px";
+
+			document.getElementById("ave").style.left = -40 + (qqq.beta - beta)*2 + lef + "px";
+			document.getElementById("ave").style.top = -340 + (qqq.gamma + gamma)*2 + top + "px";
+
+			document.getElementById("ave1").style.left = -20 + (qqq.beta - beta)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -130 + (qqq.gamma + gamma)*1.5 + top + "px";
+
+			document.getElementById("ave2").style.left = (qqq.beta - beta) + lef + "px";
+			document.getElementById("ave2").style.top = 60 + (qqq.gamma + gamma) + top + "px";
 		}
 	};
 
