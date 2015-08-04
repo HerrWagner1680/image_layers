@@ -106,11 +106,15 @@
 		if (rt===false){
 			document.getElementById('body_id').style.top = "100px";
 			document.getElementById('body_id').style.transform = "rotate(90deg)";
+			document.getElementById("body_id").style.webkitTransform = "rotate(90deg)";
+			document.getElementById("body_id").style.mozTransform = "rotate(90deg)";
 			// note - you may also need -moz-transform and -webkit-transform
 			return rt = true 
 		} else {
 			document.getElementById('body_id').style.top = "0px";
 			document.getElementById('body_id').style.transform = "rotate(0deg)";
+			document.getElementById("body_id").style.webkitTransform = "rotate(0deg)";
+			document.getElementById("body_id").style.mozTransform = "rotate(0deg)";
 			// note - you may also need -moz-transform and -webkit-transform
 			rt = false
 		}
