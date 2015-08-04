@@ -8,9 +8,6 @@
 	function mousey(event){
 		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
 	}
-	// var qqq = {}
-	// 	        document.getElementById("beta_inviz").innerHTML = qqq.beta;
-	// 	        document.getElementById("gamma_inviz").innerHTML = qqq.gamma;
 
 	var qqq = {}
 
@@ -18,31 +15,38 @@
 		
 		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
 		var dataContainerOrientation = document.getElementById('dataContainerOrientation');
-		var dataContainerMotion = document.getElementById('dataContainerMotion');
+		// var dataContainerMotion = document.getElementById('dataContainerMotion');
 
 		// var rrr=0
 
-		// setInterval(function () {
 		// if(window.DeviceOrientationEvent) {
 		rrr = 0
 		var a = 0
 		var b = 0
 		var g = 0
 		window.addEventListener('deviceorientation', function(event) {
-			rrr=rrr+1
-			    a = Math.round(event.alpha*1000)/1000;
-                b = Math.round(event.beta*1000)/1000;
-                g = Math.round(event.gamma*1000)/1000;
+			//rrr=rrr+1
+			    //alpha = Math.round(event.alpha*1000)/1000;
+                //beta = Math.round(event.beta*1000)/1000;
+                //gamma = Math.round(event.gamma*1000)/1000;
 
-                a = a + a
-                console.log("a: " + a + "rrr " + rrr)
-                b = b + b
-                g = g + g
-			if (rrr%5!==0){ return }
+                alpha = event.alpha;
+                beta = event.beta;
+                gamma = event.gamma;
+
+                //a = a + a
+                //console.log("a: " + a + "rrr " + rrr)
+                //b = b + b
+                //g = g + g
+			//if (rrr%5!==0){ return }
 			rrr = 0
-				alpha = a/5  //averages readings groups of 5
-				beta = b/5
-				gamma = g/5
+				//alpha = a/5  //averages readings groups of 5
+				//beta = b/5
+				//gamma = g/5
+
+				//alpha = 0
+				//beta = 0
+				//gamma = 0
 
 		                qqq.alpha = -alpha
 		                qqq.beta = -beta
@@ -50,44 +54,49 @@
 
 		                Object.freeze(qqq)
 
-						document.getElementById('dataContainerMotion').innerHTML = "beat"+beta+ "saved qqq B:" + qqq.beta + " qqq G:" + qqq.gamma;
+						// document.getElementById('dataContainerMotion').innerHTML = "beat"+beta+ "saved qqq B:" + qqq.beta + " qqq G:" + qqq.gamma;
 
-		document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (alpha) + "deg)";
-		document.getElementById("rotate_square").style.marginLeft = qqq.gamma*9-gamma*9 + window.innerHeight * .7 + "px";
-		var lef = qqq.gamma*9-gamma*9 + window.innerHeight * .7
-		if (lef>= window.innerHeight){ document.getElementById("rotate_square").style.marginLeft = window.innerHeight + "px" }
-		if (lef<= 10){ document.getElementById("rotate_square").style.marginLeft = "10px"}
-		document.getElementById("rotate_square").style.marginTop =  qqq.beta*9-beta*9 - window.innerHeight/4 + "px";
-	    var top = qqq.beta*9-beta*9 - window.innerHeight/4 
-	    if (top>= window.innerHeight/4){ document.getElementById("rotate_square").style.marginTop = window.innerHeight/4 + "px"}
-	    if (top<= -250){ document.getElementById("rotate_square").style.marginTop = "-250px"}
-		// document.getElementById("rotate_square").style.marginLeft = gamma*3 + window.innerWidth/2 + "px";
-		// document.getElementById("rotate_square").style.marginTop = beta*3 - window.innerHeight/10 + "px";
-		// setTimeout(function(){
-		// 	//waiting
-		// 	}, 1000); 
+		//document.getElementById("rotate_square").style.webkitTransform = "rotate(" + (alpha) + "deg)";
+
+		var lef = 250 
+		//document.getElementById("rotate_square").style.left = lef
+		document.getElementById("rotate_square").style.left = -(qqq.gamma + gamma)*3 + lef + "px";
+		//document.getElementById("rotate_square").style.left = qqq.gamma*9-gamma*9 + window.innerHeight * .7 + "px";
+		//var lef = qqq.gamma*9-gamma*9 + window.innerHeight * .7
+		//if (lef>= window.innerHeight){ document.getElementById("rotate_square").style.left = window.innerHeight + "px" }
+		//if (lef<= 10){ document.getElementById("rotate_square").style.left = "10px"}
+		//document.getElementById("rotate_square").style.top =  qqq.beta*9-beta*9 - window.innerHeight/4 + 25 + "px";
+
+	    //var top = qqq.beta*9-beta*9 - window.innerHeight/4
+	    var top = -100
+
+		//document.getElementById("rotate_square").style.top = qqq.beta + beta*3 + top + "px";
+		document.getElementById("rotate_square").style.top = -(qqq.beta + beta)*3 + top + "px";
+
+	    if (top>= window.innerHeight/4){ document.getElementById("rotate_square").style.top = window.innerHeight/4 + "px"}
+	    if (top<= -250){ document.getElementById("rotate_square").style.top = "-250px"}
+
+	    //document.getElementById("rotate_square").style.top = top
+
+
 		        if(alpha!=null || beta!=null || gamma!=null) 
 	                 dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + (alpha+qqq.alpha) + '<br/>beta: ' + (beta+qqq.beta) + '<br />gamma: ' + (gamma+qqq.gamma);
 	            }, false);
-
-		// }, 100);
-
 		}
-	// 	}
-	// }
+
 </script>
 </head>
 <!-- 	<body id="body_id" onload="init()" onmousedown="mousey(event)" ontouchstart="mousey(event)"> -->
 	<body id="body_id" onload="init()">
 		<div id="reset" onclick="reset(event)" ontouchstart="reset(event)">RESET DEVICE ORIENTATION</div>
+		<div id="rot" onclick="rot()" ontouchstart="rot()">ROTATE 90&#176;</div>
 		<div id="dataContainerOrientation">
 		No device orientation data
 		</div>
-		<div id="dataContainerMotion">
-		No device motion data
-		</div>
-		<div class="invisible" id="beta_inviz"></div>
-		<div class="invisible" id="gamma_inviz"></div>
+	<!-- 	<div id="dataContainerMotion"> -->
+<!-- 		No device motion data -->
+	<!-- 	</div> -->
+
 		<div id="ave"></div>
 		<div id="ave_xy">vcxzvcxz</div>
 		<div id="orientation"></div>
@@ -95,11 +104,16 @@
 		<div id="orientation3"></div>
 		<div id="reset_info"></div>
 
+		<div id="one"></div>
+
 		<div id="rotate_square"></div>
 		<div id="rotate_square2"></div>
 
 </body>		
 <script>
+	function rot(){
+		document.getElementById('ave_xy').innerHTML = "You hit rotate"
+	}
 
 // gamma = 0 + c
 // 0 = gamma - c
@@ -111,13 +125,16 @@
         qqq.beta = -beta
         qqq.gamma = -gamma
 		Object.freeze(qqq)
-		document.getElementById("ave_xy").innerHTML = "THAT'S A GOOD RESET, BUB" + "beta was: " + qqq.beta + "gamma was: " + qqq.gamma;
+		var top = -100
+		var lef = 250 
+
+		document.getElementById("ave_xy").innerHTML = "GOOD RESET -- " + "beta was: " + qqq.beta + "gamma was: " + qqq.gamma;
 		document.getElementById("reset_info").innerHTML = "R-B: " + qqq.beta + "R-G: " + qqq.gamma;
 		// reset_beta = beta;
 		// reset_gamma = gamma;
-		document.getElementById("rotate_square").style.marginLeft = qqq.gamma*3+gamma + "px";
-		document.getElementById("rotate_square").style.marginTop =  qqq.beta*3+beta + window.innerHeight/10 + "px";
-		//setTimeout(function(){console.log("TIMEOUT")},3000)
+		document.getElementById("rotate_square").style.left = -(qqq.gamma - gamma)*3 + lef + "px";
+		document.getElementById("rotate_square").style.top = -(qqq.beta + beta)*3 + top + "px";
+		//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
 	};
 
 	document.addEventListener("mousemove", function(event){
@@ -125,18 +142,6 @@
 	        evy = event.pageY
 	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " mousemove"
 	});
-
-	// document.addEventListener("mouseover", function(event){
-	//         evx = event.pageX
-	//         evy = event.pageY
-	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + reset_beta + " mouseover" + reset_gamma
-	// });
-
-	// document.addEventListener("mouseenter", function(event){
-	//         evx = event.pageX
-	//         evy = event.pageY
-	//         document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + reset_beta + " mouseenter " + reset_gamma
-	// });
 
 	document.addEventListener("touchstart", function(){
 			// event.preventDefault() ;
