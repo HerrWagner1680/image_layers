@@ -1,4 +1,5 @@
 #reset {
+	position: relative;
 	width: 250px;
 	height: 30px;
 	padding-top: 15px;
@@ -13,6 +14,9 @@
 }
 
 #rot{
+	position: relative;
+	top: -45px;
+	left: 300px;
 	background: #0099CC;
 	height: 30px;
 	width: 150px;
@@ -40,7 +44,9 @@
 	opacity: 1;
 }
 
-#dataContainerOrientation{ font-size: 10px;}
+#dataContainerOrientation{ display: none;
+	font-size: 10px;
+}
 
 #body_id {
 	position: fixed;
@@ -56,9 +62,9 @@
 #ave{
 	position: relative;
 	border-color: #aaa;
-	width: 300px;
-	height: 200px;
-    border-width: 15px;	
+	width: 600px;
+	height: 400px;
+    border-width: 20px;	
     border-style:solid;
 }
 
@@ -67,9 +73,9 @@
 	top: -210px;
 	left: 20px;
 	border-color: #777;
-	width: 275px;
-	height: 175px;
-    border-width: 15px;	
+	width: 550px;
+	height: 350px;
+    border-width: 20px;	
     border-style:solid;
 }
 
@@ -78,9 +84,9 @@
 	top: -390px;
 	left: 40px;
 	border-color: #444;
-	width: 250px;
-	height: 150px;
-    border-width: 15px;	
+	width: 500px;
+	height: 300px;
+    border-width: 20px;	
     border-style:solid;
 }
 
@@ -91,6 +97,6 @@ html {-webkit-text-size-adjust:none}
 	width: 100px;
 	height: 100px;
 	background: blue;
-	opacity: 0.6;
+	opacity: 0.5;
 /*  -webkit-transform: rotate(25deg);*/
 }

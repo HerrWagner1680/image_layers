@@ -6,7 +6,7 @@
 	<title>Transition</title>
 <script>
 	function mousey(event){
-		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+		//document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
 	}
 
 	rt = false // boolean for rotate status
@@ -15,7 +15,7 @@
 
 	function init() {
 		
-		document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
+		//document.getElementById("ave_xy").innerHTML = "mousey hit " + event.pageX + "X " + event.pageY + "Y";
 		var dataContainerOrientation = document.getElementById('dataContainerOrientation');
 		// var dataContainerMotion = document.getElementById('dataContainerMotion');
 
@@ -44,34 +44,34 @@
 		var top = -100
 
 		if (rt===false){
-			document.getElementById("rotate_square").style.left = 70 -(qqq.gamma + gamma)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = -540 -(qqq.beta + beta)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 220 -(qqq.gamma + gamma)*5 + lef + "px";
+			document.getElementById("rotate_square").style.top = -350 -540 -(qqq.beta + beta)*5 + top + "px";
 			//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
 
-			document.getElementById("ave").style.left = -40 -(qqq.gamma + gamma)*2 + lef + "px";
-			document.getElementById("ave").style.top = -340 -(qqq.beta + beta)*2 + top + "px";
+			document.getElementById("ave").style.left = -50 -(qqq.gamma + gamma)*2 + lef + "px";
+			document.getElementById("ave").style.top = -285 -340 -(qqq.beta + beta)*2 + top + "px";
 
-			document.getElementById("ave1").style.left = -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
-			document.getElementById("ave1").style.top = -130 -(qqq.beta + beta)*1.5 + top + "px";
+			document.getElementById("ave1").style.left = -5 -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -80 -130 -(qqq.beta + beta)*1.5 + top + "px";
 
 			document.getElementById("ave2").style.left = -(qqq.gamma + gamma) + lef + "px";
-			document.getElementById("ave2").style.top = 60 -(qqq.beta + beta) + top + "px";
+			document.getElementById("ave2").style.top = 100 + 60 -(qqq.beta + beta) + top + "px";
 
 			return;
 		} else {
 			// var top = 250
 			// var lef = -100
-			document.getElementById("rotate_square").style.left = 70 + (qqq.beta - beta)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = -540 + (qqq.gamma + gamma)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 220 + (qqq.beta - beta)*5 + lef + "px";
+			document.getElementById("rotate_square").style.top = -350 -540 + (qqq.gamma + gamma)*5 + top + "px";
 
-			document.getElementById("ave").style.left = -40 + (qqq.beta - beta)*2 + lef + "px";
-			document.getElementById("ave").style.top = -340 + (qqq.gamma + gamma)*2 + top + "px";
+			document.getElementById("ave").style.left = -50 + (qqq.beta - beta)*2 + lef + "px";
+			document.getElementById("ave").style.top = -285 -340 + (qqq.gamma + gamma)*2 + top + "px";
 
-			document.getElementById("ave1").style.left = -20 + (qqq.beta - beta)*1.5 + lef + "px";
-			document.getElementById("ave1").style.top = -130 + (qqq.gamma + gamma)*1.5 + top + "px";
+			document.getElementById("ave1").style.left = -5 -20 + (qqq.beta - beta)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -80 -130 + (qqq.gamma + gamma)*1.5 + top + "px";
 
 			document.getElementById("ave2").style.left = (qqq.beta - beta) + lef + "px";
-			document.getElementById("ave2").style.top = 60 + (qqq.gamma + gamma) + top + "px";
+			document.getElementById("ave2").style.top = 100 + 60 + (qqq.gamma + gamma) + top + "px";
 		}
 
 
@@ -98,7 +98,7 @@
 		<div id="reset" onclick="reset(event)" ontouchstart="reset(event)">RESET DEVICE ORIENTATION</div>
 		<div id="rot" onclick="rot()" ontouchstart="rot()">ROTATE 90&#176;</div>
 		<div id="dataContainerOrientation">
-		No device orientation data
+	<!-- 	No device orientation data -->
 		</div>
 	<!-- 	<div id="dataContainerMotion"> -->
 <!-- 		No device motion data -->
@@ -106,25 +106,26 @@
 		<div id="ave2"></div>
 		<div id="ave1"></div>
 		<div id="ave"></div>
-		<div id="ave_xy">vcxzvcxz</div>
+<!-- 		<div id="ave_xy">vcxzvcxz</div> -->
 <!-- 		<div id="orientation"></div> -->
 <!-- 		<div id="orientation2"></div> -->
 <!-- 		<div id="orientation3"></div> -->
-		<div id="reset_info"></div>
+<!-- 		<div id="reset_info"></div> -->
 
 	<!-- 	<div id="one"></div> -->
 
-		<div id="rotate_square"></div>
-		<div id="rotate_square2"></div>
+ 		<div id="rotate_square"></div>
+<!-- 		<div id="rotate_square2"></div> -->
 
 </body>		
 <script>
 	rt = false // boolean for rotate status
 
 	function rot(){
-		document.getElementById('ave_xy').innerHTML = "You hit rotate"
+		//document.getElementById('ave_xy').innerHTML = "You hit rotate"
 		if (rt===false){
-			document.getElementById('body_id').style.top = "-280px";
+			document.getElementById('body_id').style.top = "-350px";
+			document.getElementById('body_id').style.left = "-350px";
 			document.getElementById('body_id').style.transform = "rotate(90deg)";
 			document.getElementById("body_id").style.webkitTransform = "rotate(90deg)";
 			document.getElementById("body_id").style.mozTransform = "rotate(90deg)";
@@ -132,6 +133,7 @@
 			return rt = true 
 		} else {
 			document.getElementById('body_id').style.top = "0px";
+			document.getElementById('body_id').style.left = "0px";
 			document.getElementById('body_id').style.transform = "rotate(0deg)";
 			document.getElementById("body_id").style.webkitTransform = "rotate(0deg)";
 			document.getElementById("body_id").style.mozTransform = "rotate(0deg)";
@@ -153,46 +155,46 @@
 		var top = -100
 		var lef = 250 
 
-		document.getElementById("ave_xy").innerHTML = "GOOD RESET -- " + "beta was: " + qqq.beta + "gamma was: " + qqq.gamma;
-		document.getElementById("reset_info").innerHTML = "R-B: " + qqq.beta + "R-G: " + qqq.gamma;
+		//document.getElementById("ave_xy").innerHTML = "GOOD RESET -- " + "beta was: " + qqq.beta + "gamma was: " + qqq.gamma;
+		//document.getElementById("reset_info").innerHTML = "R-B: " + qqq.beta + "R-G: " + qqq.gamma;
 		// reset_beta = beta;
 		// reset_gamma = gamma;
 
 		if (rt===false){
-			document.getElementById("rotate_square").style.left = 70 -(qqq.gamma + gamma)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = -540 -(qqq.beta + beta)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 220 -(qqq.gamma + gamma)*5 + lef + "px";
+			document.getElementById("rotate_square").style.top = -350 -540 -(qqq.beta + beta)*5 + top + "px";
 			//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
 
-			document.getElementById("ave").style.left = -40 -(qqq.gamma + gamma)*2 + lef + "px";
-			document.getElementById("ave").style.top = -340 -(qqq.beta + beta)*2 + top + "px";
+			document.getElementById("ave").style.left = -50 -(qqq.gamma + gamma)*2 + lef + "px";
+			document.getElementById("ave").style.top = -285 -340 -(qqq.beta + beta)*2 + top + "px";
 
-			document.getElementById("ave1").style.left = -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
-			document.getElementById("ave1").style.top = -130 -(qqq.beta + beta)*1.5 + top + "px";
+			document.getElementById("ave1").style.left = -5 -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -80 -130 -(qqq.beta + beta)*1.5 + top + "px";
 
 			document.getElementById("ave2").style.left = -(qqq.gamma + gamma) + lef + "px";
-			document.getElementById("ave2").style.top = 60 -(qqq.beta + beta) + top + "px";
+			document.getElementById("ave2").style.top = 100 + 60 -(qqq.beta + beta) + top + "px";
 			return;
 		} else {
 			// var top = 250
 			// var lef = -100
-			document.getElementById("rotate_square").style.left = 70 + (qqq.beta - beta)*3 + lef + "px";
-			document.getElementById("rotate_square").style.top = -540 + (qqq.gamma + gamma)*3 + top + "px";
+			document.getElementById("rotate_square").style.left = 220 + (qqq.beta - beta)*5 + lef + "px";
+			document.getElementById("rotate_square").style.top = -350 -540 + (qqq.gamma + gamma)*5 + top + "px";
 
-			document.getElementById("ave").style.left = -40 + (qqq.beta - beta)*2 + lef + "px";
-			document.getElementById("ave").style.top = -340 + (qqq.gamma + gamma)*2 + top + "px";
+			document.getElementById("ave").style.left = -50 + (qqq.beta - beta)*2 + lef + "px";
+			document.getElementById("ave").style.top = -285 -340 + (qqq.gamma + gamma)*2 + top + "px";
 
-			document.getElementById("ave1").style.left = -20 + (qqq.beta - beta)*1.5 + lef + "px";
-			document.getElementById("ave1").style.top = -130 + (qqq.gamma + gamma)*1.5 + top + "px";
+			document.getElementById("ave1").style.left = -5 -20 + (qqq.beta - beta)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -80 -130 + (qqq.gamma + gamma)*1.5 + top + "px";
 
 			document.getElementById("ave2").style.left = (qqq.beta - beta) + lef + "px";
-			document.getElementById("ave2").style.top = 60 + (qqq.gamma + gamma) + top + "px";
+			document.getElementById("ave2").style.top = 100 + 60 + (qqq.gamma + gamma) + top + "px";
 		}
 	};
 
 	document.addEventListener("mousemove", function(event){
 	        evx = event.pageX
 	        evy = event.pageY
-	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " mousemove"
+	        //document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " mousemove"
 	});
 
 	document.addEventListener("touchstart", function(){
@@ -200,7 +202,7 @@
 			//showCoords();
 		    evx = event.pageX
 	        evy = event.pageY
-	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " touchstart" 
+	        //document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " touchstart" 
 	});
 
 	document.addEventListener("touchmove", function(){
@@ -208,18 +210,18 @@
 			//showCoords();
 		    evx = event.pageX
 	        evy = event.pageY
-	        document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " touchmove" 
+	        //document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " touchmove" 
 	});
 
-	setInterval(function(){ document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
-		document.getElementById("orientation2").innerHTML = window.innerWidth + "inner width";
-		if(window.innerHeight > window.innerWidth){
-		    // document.getElementById("body_id").style.transform = "rotate(-90deg)";
-		    document.getElementById("orientation3").innerHTML = "portrait position";
-		} else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position";
-		//document.getElementById("body_id").style.transform = "rotate(-90deg)"; 
-		}
-	}, 100);
+	// setInterval(function(){ document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
+	// 	document.getElementById("orientation2").innerHTML = window.innerWidth + "inner width";
+	// 	if(window.innerHeight > window.innerWidth){
+	// 	    // document.getElementById("body_id").style.transform = "rotate(-90deg)";
+	// 	    document.getElementById("orientation3").innerHTML = "portrait position";
+	// 	} else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position";
+	// 	//document.getElementById("body_id").style.transform = "rotate(-90deg)"; 
+	// 	}
+	// }, 100);
 
 
 </script>
