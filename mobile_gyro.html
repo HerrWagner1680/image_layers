@@ -34,8 +34,9 @@
 		                qqq.gamma = -gamma
 
 		                Object.freeze(qqq)
-
-
+		    // Object freeze is the starting position
+		    // Numbers ID prints out data in real time
+		 document.getElementById("numbers").innerHTML = "ALPHA " + Math.round(alpha) + " BETA " + Math.round(beta) + " GAMMA " + Math.round(gamma) + ".... QQQa " + qqq.alpha + " QQQb " + qqq.beta + " QQQg " + qqq.gamma;
 
 		var lef = 250 
 
@@ -44,23 +45,33 @@
 		var top = -100
 
 		if (rt===false){
-			document.getElementById("rotate_square").style.left = 70 -(qqq.gamma + gamma)*5 + lef + "px";
-			document.getElementById("rotate_square").style.top = -350 -540 -(qqq.beta + beta)*5 + top + "px";
+			document.getElementById("rotate_square").style.left = 70 +(qqq.gamma + gamma)*5 + lef + "px";
+			document.getElementById("rotate_square").style.top = -350 -540 +(qqq.beta + beta)*5 + top + "px";
+
+		// lines 52 and 53 below are original opposite direction.
+			// document.getElementById("rotate_square").style.left = 70 -(qqq.gamma + gamma)*5 + lef + "px";
+			// document.getElementById("rotate_square").style.top = -350 -540 -(qqq.beta + beta)*5 + top + "px";
+		// I only changed the '-'' in front of qqq parens
+
+
+
 			//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
 
-			document.getElementById("ave").style.left = -200 -(qqq.gamma + gamma)*2 + lef + "px";
-			document.getElementById("ave").style.top = -285 -340 -(qqq.beta + beta)*2 + top + "px";
+			document.getElementById("ave").style.left = -200 +(qqq.gamma + gamma)*2 + lef + "px";
+			document.getElementById("ave").style.top = -285 -340 +(qqq.beta + beta)*2 + top + "px";
 
-			document.getElementById("ave1").style.left = -155 -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
-			document.getElementById("ave1").style.top = -80 -130 -(qqq.beta + beta)*1.5 + top + "px";
+			document.getElementById("ave1").style.left = -155 -20 +(qqq.gamma + gamma)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -80 -130 +(qqq.beta + beta)*1.5 + top + "px";
 
-			document.getElementById("ave2").style.left = -150 -(qqq.gamma + gamma) + lef + "px";
-			document.getElementById("ave2").style.top = 100 + 60 -(qqq.beta + beta) + top + "px";
+			document.getElementById("ave2").style.left = -150 +(qqq.gamma + gamma) + lef + "px";
+			document.getElementById("ave2").style.top = 100 + 60 +(qqq.beta + beta) + top + "px";
 
 			return;
 		} else {
 			// var top = 250
 			// var lef = -100
+
+			// I made no + - changes to the ELSE code after switching directions above
 			document.getElementById("rotate_square").style.left = 70 + (qqq.beta - beta)*5 + lef + "px";
 			document.getElementById("rotate_square").style.top = -350 -540 + (qqq.gamma + gamma)*5 + top + "px";
 
@@ -97,6 +108,7 @@
 	<body id="body_id" onload="init()">
 		<div id="reset" onclick="reset(event)" ontouchstart="reset(event)">RESET DEVICE ORIENTATION</div>
 		<div id="rot" onclick="rot()" ontouchstart="rot()">ROTATE 90&#176;</div>
+		<div id="numbers"></div>
 		<div id="dataContainerOrientation">
 	<!-- 	No device orientation data -->
 		</div>
@@ -161,22 +173,27 @@
 		// reset_gamma = gamma;
 
 		if (rt===false){
-			document.getElementById("rotate_square").style.left = 70 -(qqq.gamma + gamma)*5 + lef + "px";
-			document.getElementById("rotate_square").style.top = -350 -540 -(qqq.beta + beta)*5 + top + "px";
+
+			//updating code to change the - + direction
+			// changing '-' in front of qqq parens to '+''
+			document.getElementById("rotate_square").style.left = 70 +(qqq.gamma + gamma)*5 + lef + "px";
+			document.getElementById("rotate_square").style.top = -350 -540 +(qqq.beta + beta)*5 + top + "px";
 			//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
 
-			document.getElementById("ave").style.left = -200 -(qqq.gamma + gamma)*2 + lef + "px";
-			document.getElementById("ave").style.top = -285 -340 -(qqq.beta + beta)*2 + top + "px";
+			document.getElementById("ave").style.left = -200 +(qqq.gamma + gamma)*2 + lef + "px";
+			document.getElementById("ave").style.top = -285 -340 +(qqq.beta + beta)*2 + top + "px";
 
-			document.getElementById("ave1").style.left = -155 -20 -(qqq.gamma + gamma)*1.5 + lef + "px";
-			document.getElementById("ave1").style.top = -80 -130 -(qqq.beta + beta)*1.5 + top + "px";
+			document.getElementById("ave1").style.left = -155 -20 +(qqq.gamma + gamma)*1.5 + lef + "px";
+			document.getElementById("ave1").style.top = -80 -130 +(qqq.beta + beta)*1.5 + top + "px";
 
-			document.getElementById("ave2").style.left = -150 -(qqq.gamma + gamma) + lef + "px";
-			document.getElementById("ave2").style.top = 100 + 60 -(qqq.beta + beta) + top + "px";
+			document.getElementById("ave2").style.left = -150 +(qqq.gamma + gamma) + lef + "px";
+			document.getElementById("ave2").style.top = 100 + 60 +(qqq.beta + beta) + top + "px";
 			return;
 		} else {
 			// var top = 250
 			// var lef = -100
+
+			// made no + or - changes to the ELSE code
 			document.getElementById("rotate_square").style.left = 70 + (qqq.beta - beta)*5 + lef + "px";
 			document.getElementById("rotate_square").style.top = -350 -540 + (qqq.gamma + gamma)*5 + top + "px";
 
