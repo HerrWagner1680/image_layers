@@ -3,34 +3,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<title>Angular Test</title>
+  <title>Angular Test</title>
 <body>
 
-<div ng-app="myApp" ng-controller="formCtrl">
-  <form novalidate>
-    ID:<br>
-    <input type="text" ng-model="user.ElementById"><br>
-    CSS attribute:<br>
-    <input type="text" ng-model="user.style"><br>
-    Value of attribute:<br>
-    <input type="text" ng-model="user.value"><br>
-    <br><br>
-    <button ng-click="reset()">RESET</button>
-  </form>
-  <p>form = {{user }}</p>
-  <p>master = {{master}}</p>
-</div>
+  <div ng-app="myApp" ng-controller="formCtrl">
+      <form novalidate>
+        ID:<br>
+        <input type="text" ng-model="user.id"><br>
+        CSS attribute:<br>
+        <input type="text" ng-model="user.css_attrib"><br>
+        Value of attribute:<br>
+        <input type="text" ng-model="user.value"><br>
+        <br><br>
+        <button ng-click="reset()">RESET</button>
+      </form>
+      <p>form = {{user }}</p>
+      <p>master = {{master}}</p>
+      <p>code = {{"document.getElementById('" + user.id + "').style." + user.css_attrib + " = '" + user.value + "'"}}</p>
+
+      <div some-thing></div>
+  </div>
 
 <script>
-var app = angular.module('myApp', []);
-app.controller('formCtrl', function($scope) {
-    // $scope.master = {firstName:"John", lastName:"Doe"};
-    $scope.master = {'ElementById': '("square")', 'style': 'background', 'value': 'black'};
-    $scope.reset = function() {
-        $scope.user = angular.copy($scope.master);
-    };
-    $scope.reset();
-});
+    angular.module('myApp', [])
+
+    .directive('someThing', function() {
+      return {
+        template: '<div>Doodad Directive' + ' yep ' + '</div>'
+      }
+    })
+
+    .controller('formCtrl', function($scope) {
+        $scope.master = {id: 'square', css_attrib: 'background', value: 'black'}; 
+        $scope.reset = function() {
+            $scope.user = angular.copy($scope.master);
+        };
+        $scope.reset();
+    });
 </script>
 
 </body>

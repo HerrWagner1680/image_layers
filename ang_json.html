@@ -1,0 +1,29 @@
+<!--  https://egghead.io/lessons/angularjs-http  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	<title>Angular JSON test</title>
+</head>
+<body ng-app="app" ng-controller="AppCtrl as app">
+<ul>
+	<li ng-repeat="person in app.people">
+		{{person.firstName}}  {{person.lastName}}
+	</li>
+</ul>
+
+<script>
+var app = angular.module("app", []);
+
+app.controller("AppCtrl", function ($http) {
+	var app = this;
+	//$http.get("http://localhost:3000/users")
+	$http.get("../ang_json.json")
+		.success(function (data)) {
+			app.people = data;
+		})
+})
+</script>
+</body>
+</html>
