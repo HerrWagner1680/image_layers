@@ -54,7 +54,6 @@
 		// I only changed the '-'' in front of qqq parens
 
 
-
 			//document.getElementById("rotate_square").style.top =  qqq.beta*3+beta + window.innerHeight/10 + "px";
 
 			document.getElementById("ave").style.left = -200 +(qqq.gamma + gamma)*2 + lef + "px";
@@ -85,18 +84,6 @@
 			document.getElementById("ave2").style.top = 100 + 60 + (qqq.gamma + gamma) + top + "px";
 		}
 
-
-
-	 //    var top = -100
-
-		// document.getElementById("rotate_square").style.top = -(qqq.beta + beta)*3 + top + "px";
-
-	 //    if (top>= window.innerHeight/4){ document.getElementById("rotate_square").style.top = window.innerHeight/4 + "px"}
-	 //    if (top<= -250){ document.getElementById("rotate_square").style.top = "-250px"}
-
-
-
-
 		        if(alpha!=null || beta!=null || gamma!=null) 
 	                 dataContainerOrientation.innerHTML = '<strong>Orientation</strong><br />alpha: ' + (alpha+qqq.alpha) + '<br/>beta: ' + (beta+qqq.beta) + '<br />gamma: ' + (gamma+qqq.gamma);
 	            }, false);
@@ -118,13 +105,6 @@
 		<div id="ave2"></div>
 		<div id="ave1"></div>
 		<div id="ave"></div>
-<!-- 		<div id="ave_xy">vcxzvcxz</div> -->
-<!-- 		<div id="orientation"></div> -->
-<!-- 		<div id="orientation2"></div> -->
-<!-- 		<div id="orientation3"></div> -->
-<!-- 		<div id="reset_info"></div> -->
-
-	<!-- 	<div id="one"></div> -->
 
  		<div id="rotate_square"></div>
 <!-- 		<div id="rotate_square2"></div> -->
@@ -166,11 +146,6 @@
 		Object.freeze(qqq)
 		var top = -100
 		var lef = 250 
-
-		//document.getElementById("ave_xy").innerHTML = "GOOD RESET -- " + "beta was: " + qqq.beta + "gamma was: " + qqq.gamma;
-		//document.getElementById("reset_info").innerHTML = "R-B: " + qqq.beta + "R-G: " + qqq.gamma;
-		// reset_beta = beta;
-		// reset_gamma = gamma;
 
 		if (rt===false){
 
@@ -229,17 +204,6 @@
 	        evy = event.pageY
 	        //document.getElementById("ave_xy").innerHTML = "mousey hit " + evx + "X " + evy + "Y" + " touchmove" 
 	});
-
-	// setInterval(function(){ document.getElementById("orientation").innerHTML = window.innerHeight + "inner height";
-	// 	document.getElementById("orientation2").innerHTML = window.innerWidth + "inner width";
-	// 	if(window.innerHeight > window.innerWidth){
-	// 	    // document.getElementById("body_id").style.transform = "rotate(-90deg)";
-	// 	    document.getElementById("orientation3").innerHTML = "portrait position";
-	// 	} else { document.getElementById("orientation3").innerHTML = "...LANDSCAPE... position";
-	// 	//document.getElementById("body_id").style.transform = "rotate(-90deg)"; 
-	// 	}
-	// }, 100);
-
 
 </script>
 </html>
