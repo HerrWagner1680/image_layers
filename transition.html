@@ -110,10 +110,20 @@ document.addEventListener("mousemove", function(){
 // 		showCoords();
 // });
 
-document.addEventListener("touchstart", function(){
+/* removing lines 114 - 117 because of adding ANDROID friendly version -- see line 120 */
+/* document.addEventListener("touchstart", function(){
 		// event.preventDefault() ;
 		showCoords();
-});
+}); */
+
+/* newly added ANDROID friendly code, below */
+document.addEventListener( "touchstart", function(e){ onStart(e); }, false );
+function onStart ( touchEvent ) {
+  if( navigator.userAgent.match(/Android/i) ) {
+    touchEvent.preventDefault();
+  }
+}
+/* end of new code, from http://uihacker.blogspot.com/2011/01/android-touchmove-event-bug.html */
 
 document.addEventListener("touchmove", function(){
 		event.preventDefault() ;
