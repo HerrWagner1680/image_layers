@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="transition.css">
-	<title>Transition</title>
+	<link rel="stylesheet" type="text/css" href="transition2.css">
+	<title>Transition 2</title>
 </head>
 <!-- <body id="the_body" onmousemove="showCoords(event)" onmouseout="clearCoor()"> -->
 <body id="the_body" onmouseout="clearCoor()">
@@ -99,10 +99,11 @@ setInterval(function(){
 // });
 
 document.addEventListener("mousemove", function(){
-		event.preventDefault();
+		/* event.preventDefault(); */
 		showCoords();
 });
 
+/* 
 document.addEventListener("mousedown", function(){
 		event.preventDefault();
 		showCoords();
@@ -111,7 +112,7 @@ document.addEventListener("mousedown", function(){
 document.addEventListener("mouseup", function(){
 		event.preventDefault();
 		showCoords();
-});
+}); */
 
 // document.addEventListener("mouseover", function(){
 // 		showCoords();
@@ -141,7 +142,7 @@ document.addEventListener("touchstart", function(){
 		showCoords();
 });
 
-document.addEventListener("touchend", function(){
+/* document.addEventListener("touchend", function(){
 		event.preventDefault();
 		showCoords();
 });
@@ -149,7 +150,7 @@ document.addEventListener("touchend", function(){
 document.addEventListener("touchmove", function(){
 		event.preventDefault();
 		showCoords();
-});
+}); */
 
 
 	var y = 0;
