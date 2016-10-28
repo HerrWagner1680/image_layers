@@ -117,16 +117,16 @@ document.addEventListener("mousemove", function(){
 }); */
 
 /* newly added ANDROID friendly code, below */
-document.addEventListener( "touchstart", function(e){ onStart(e); }, false );
+/* document.addEventListener( "touchstart", function(e){ onStart(e); }, false );
 function onStart ( touchEvent ) {
   if( navigator.userAgent.match(/Android/i) ) {
     touchEvent.preventDefault();
   }
-}
+} */
 /* end of new code, from http://uihacker.blogspot.com/2011/01/android-touchmove-event-bug.html */
 
 document.addEventListener("touchmove", function(){
-		event.preventDefault() ;
+		/* event.preventDefault() ; */
 		showCoords();
 });
 
