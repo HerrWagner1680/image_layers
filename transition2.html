@@ -21,7 +21,7 @@
 <!-- 	<div id="circ"></div> -->
 
 	<div class="container">
-		<div id="one">1<p class="dot"></p><p id="the_circle"></p><p id="square"></p><p id="square_2"></p><p id="square_3"></p></div>
+		<div id="one">1<p class="dot"></p><p id="the_circle"></p>><p id="square"></p><p id="square_2"></p><p id="square_3"></p></div>
 		<div id="two">2<p class="dot"></p><p id="square2"></p></div>
 		<div id="three">3<p class="dot"></p><p id="square3"></p></div>
 
@@ -30,34 +30,16 @@
 	<div id="container">
 		<!-- div id="prev" onclick="prevMove()">&#60;</div -->
 		<!-- div id="next" onclick="nextMove()">&#62;</div -->
-		<div id="up_arr" class="arrow_button" ontouchstart="moveUp()" onmouseup="moveUp()">up</div>
-		<div id="down_arr" class="arrow_button" ontouchmove="moveDown()" onmousedown="moveDown()">down</div>
-		<div id="left_arr" class="arrow_button" ontouchend="moveLeft()">left</div>
-		<div id="right_arr" class="arrow_button" onclick="moveRight()">right</div>
+		<div id="up_arr" class="arrow_button" onmousedown="moveUp()">up</div>
+		<div id="down_arr" class="arrow_button" onmousedown="moveDown()">down</div>
+		<div id="left_arr" class="arrow_button" onmousedown="moveLeft()">left</div>
+		<div id="right_arr" class="arrow_button" onmousedown="moveRight()">right</div>
 	</div>
 	
 </body>
 	<script>
 	var left_margin = (window.innerWidth-600)/2 - 8
 
-	var circle = document.getElementById("the_circle");
-
-	circle.style.background = "green";
-	circle.addEventListener("click", function(){ alert("you clicked")}, true);
-
-
-	// DOUBLE CLICK MAKES ARROW DISAPPEAR AND REAPPEAR
-	var i = 0;
-	document.getElementById('the_body').addEventListener('dblclick', function(){
-		i = i+1
-		if (i%2===0){
-		 	// alert('yep' + ' i' + i);
-		 	return document.getElementById('the_body').style.cursor = 'default';
-		 	}
-		else { //alert("else default"); 		
-			return document.getElementById('the_body').style.cursor = 'none';
-			};
-	});
 
 	/* sensing type of mobile operating system */
 	/* http://stackoverflow.com/questions/21741841/detecting-ios-android-operating-system */
@@ -114,16 +96,49 @@
 
 		/* below are newly added for TRANSITION2 */
 		function moveUp(){
-			alert("MOVE UP");
+			currentTop = parseInt(document.getElementById("the_circle").style.top);
+			if (isNaN(currentTop)){ currentTop = 50 }
+			if (currentTop < 0){ 
+				currentTop = 0
+				document.getElementById("the_circle").style.top = currentTop + "px";
+			}
+			document.getElementById("the_circle").style.top = currentTop - 20 + "px";
 		}
 		function moveDown(){
-			alert("MOVE DOWN");
+			currentTop = parseInt(document.getElementById("the_circle").style.top);
+			if (isNaN(currentTop)){ currentTop = 50 }
+			if (currentTop > 150){ 
+				currentTop = 150
+				document.getElementById("the_circle").style.top = currentTop + "px";
+			}
+			document.getElementById("the_circle").style.top = currentTop + 20 + "px";
 		}
 		function moveLeft(){
-			alert("MOVE LEFT");
+			currentLeft = parseInt(document.getElementById("the_circle").style.left);
+			if (isNaN(currentLeft)){ currentLeft = 100 }
+			if (currentLeft < 0){ 
+				currentLeft = 0
+				document.getElementById("the_circle").style.left = currentLeft + "px";
+			}
+			document.getElementById("the_circle").style.left = currentLeft - 20 + "px";
 		}
 		function moveRight(){
-			alert("MOVE RIGHT");
+			currentLeft = parseInt(document.getElementById("the_circle").style.left);
+			if (isNaN(currentLeft)){ currentLeft = 100 }
+			if (currentLeft > 535){ 
+				currentLeft = 535
+				document.getElementById("the_circle").style.left = currentLeft + "px";
+			}
+			document.getElementById("the_circle").style.left = currentLeft + 30 + "px";
+			var waityWait = setInterval(function(){ waitingRight() }, 500);
+			function waitingRight(){
+				currentLeft = parseInt(document.getElementById("the_circle").style.left);
+				document.getElementById("the_circle").style.left = currentLeft + 30 + "px";};
+			/* console.log("time right");
+			document.getElementById("the_circle").style.left = currentLeft + 20 + "px"; */
+			document.getElementById("right_arr").addEventListener("mouseup", function(){ console.log ("SFDHJSDJFKJ"); clearInterval(waityWait); });
+			/* document.getElementById("right_arr").addEventListener("mousedown", function(){ console.log ("DOWN DOWN DOWN"); });
+			return false; */
 		}
 
 	// You want the objects to move in the opposite direction from the pointer
@@ -132,10 +147,6 @@
 setInterval(function(){
 	var left_margin = (window.innerWidth-600)/2 - 8 + 10.5 // 10.5 is unexplained diff
 
-
-	// #one is 600px wide and 300px(actually 320px) high
-	// console.log( document.getElementById('one').style.width )
-	// console.log( document.getElementById('one').style.height )
 
 	epiX = left_margin + 300 
 	epiY = 100 + 160 // header is 100px plus 
@@ -161,66 +172,32 @@ setInterval(function(){
 // 		showCoords();
 // });
 
-document.addEventListener("mousemove", function(){
+// ******************
+/*
+document.addEventListener("mousemove", function(){ */
 		/* event.preventDefault(); */
-		showCoords();
-});
-
-var circ = document.getElementById('one')
-
-circ.addEventListener("hover", function(){
-		/* event.preventDefault();
-		showCoords(); */
-		alert("SDFHKJDSFKHJKFSD");
-		/* console.log("click X: " + event.pageX + " Y: " + event.pageY); */
-}, false);
-
-/* 
-document.addEventListener("mousedown", function(){
-		event.preventDefault();
-		showCoords();
-});
-
-document.addEventListener("mouseup", function(){
-		event.preventDefault();
-		showCoords();
+		/*showCoords();
 }); */
 
-// document.addEventListener("mouseover", function(){
-// 		showCoords();
-// });
-
-// document.addEventListener("mouseenter", function(){
-// 		showCoords();
-// });
-
-/* removing lines 114 - 117 because of adding ANDROID friendly version -- see line 120 */
 /* document.addEventListener("touchstart", function(){
-		// event.preventDefault() ;
+		event.preventDefault();
 		showCoords();
 }); */
 
-/* newly added ANDROID friendly code, below */
-/* document.addEventListener( "touchstart", function(e){ onStart(e); }, false );
-function onStart ( touchEvent ) {
-  if( navigator.userAgent.match(/Android/i) ) {
-    touchEvent.preventDefault();
-  }
-} */
-/* end of new code, from http://uihacker.blogspot.com/2011/01/android-touchmove-event-bug.html */
-
-document.addEventListener("touchstart", function(){
+document.addEventListener("touchmove", function(){
 		event.preventDefault();
 		showCoords();
 });
 
 document.getElementById("the_circle").addEventListener("touchstart", function(){
-		/* event.preventDefault();
-		showCoords(); */
+		circleStartX = event.pageX;
+		circleStartY = event.pageY;
 		console.log("TOUCHSTART X: " + event.pageX + " Y: " + event.pageY);
 });
 
 document.getElementById("the_circle").addEventListener("mousedown", function(){
+		circleStartX = event.pageX;
+		circleStartY = event.pageY;
 		/* event.preventDefault();
 		showCoords(); */
 		console.log("MOUSEDOWN X: " + event.pageX + " Y: " + event.pageY);
@@ -246,9 +223,6 @@ document.addEventListener("touchmove", function(){
 	var y = 0;
 	// function showCoords(event) {
 	function showCoords() {
-		// pointer location on the document
-	    // var x = event.pageX - (window.innerWidth-600)/2 - 2 + " X"; 
-	    // var y = event.pageY - 120 + " Y"; // 120px is height of header
 
 	    var x = event.pageX - epiX
 	    var y = event.pageY - epiY
@@ -264,15 +238,17 @@ document.addEventListener("touchmove", function(){
 		if (ypointer >= 120){ ypointer = 120 };
 		if (ypointer <= -120){ ypointer = -120 };
 
-		// REMEMBER - box is 600 wide and 320 high
-		// moving object squares are 700 wide by 500 high
-		// document.getElementById("circ").style.left = (event.pageX).toString() + "px";
-		// document.getElementById("circ").style.top = (event.pageY).toString() + "px";
+		// touchstart and mousedown
+		// circleStartX = event.pageX;
+		// circleStartY = event.pageY;
+		circleStartX = 0;
+		circleStartY = 0;
+		// upper left corner of box X -295 and Y -119
+		/* document.getElementById("the_circle").style.left = circleStartX + 100 + "px";
+		
+		document.getElementById("the_circle").style.top = circleStartY + 50 + "px"; */
 
-		//keep the numbers sep do not combine the notation gets too confusing to read
-		//COMMENTED OUT VERSION BELOW FOLLOWS ARROW
-		// document.getElementById("square").style.left = (xpointer-350+280).toString() + "px";
-		// document.getElementById("square").style.top = (ypointer-250+128).toString() + "px";
+
 
 		document.getElementById("square").style.left = (-350+280+3-(xpointer*.2)*.29).toString() + "px";
 		document.getElementById("square").style.top = (-250+128-50-(ypointer*.2)*.2).toString() + "px";
@@ -283,53 +259,7 @@ document.addEventListener("touchmove", function(){
 		document.getElementById("square_3").style.left = (-350+280+65-(xpointer*.8)*.66).toString() + "px";
 		document.getElementById("square_3").style.top = (-1350+128+50-(ypointer*.8)*.6).toString() + "px";
 	};
-		// var ypointer = event.pageY;
-
-		// var left_sq = document.getElementById("square").style.left
-		// document.getElementById("sq_left").innerHTML = "sq_left " + left_sq;		
-
-	// EDGES OF BOX
-	// top left 316x 116y
-	// top right 916x  116y
-	// bottom left 316x 436y
-	// botom right 916x  436y
-
-
-		//restrict the pointer in order to restrain movement
-		// if (x<=313){ x = 313}; // remember xpointer number skewed by 100
-		// if (x>=353){ x = 353};
-
-		// if (y<=166){ y = 166}; // remember ypointer number skewed by 130
-		// if (y>=376){ y = 376};
-
-		// xpoint -40 ypoint -210
-
-	// **ACTIVE 	var movex_quarter = x*.25 + 278
-//		var movex_quarter = (xpointer-1750)*.25 + 278
-	// **ACTIVE  	var movex_half = x*.5 + 200
-		// var movex = (epiX-100) - (xpointer-100) + (epiX-100);
-
-		//document.getElementById("square").style.left = (xpointer).toString() + "px";
-
-
-		//** ACTIVE
-		// document.getElementById("square").style.left = (x).toString() + "px";
-		// document.getElementById("square_2").style.left = (movex_half).toString() + "px";
-		// document.getElementById("square_3").style.left = (movex_quarter).toString() + "px";
-		// document.getElementById("square2").style.left = (movex_half).toString() + "px";
-		// document.getElementById("square3").style.left = (movex_quarter + 5).toString() + "px";
-
-
-		// var movey = (epiY-130) - (ypointer-130) + (epiY-130);
-
-
-		//below all good for square_3
-		//var movey_quarter = (ypointer-5010)*.2 + 278
-		//var movey_quarter = (ypointer-4010)*.25 + 278
-		//var movey_quarter = (ypointer-3410)*.3 + 278
-		//var movey_quarter = (ypointer-2610)*.4 + 278
-		//var movey_quarter = (ypointer-2210)*.5 + 278
-		//var movey_quarter = (ypointer-1810)*.6 + 278
+	
 		var movey_quarter = (y)*.25 - 228
 //		var movey_quarter = (ypointer-4090)*.25 - 228
 
@@ -339,26 +269,6 @@ document.addEventListener("touchmove", function(){
 
 		var movey_threequart = (y)*.75 - 2000
 
-//		document.getElementById("square").style.top = (ypointer-425).toString() + "px";
-
-		//var top_sq = document.getElementById("square").style.top
-	//	document.getElementById("sq_top").innerHTML = "sq_top " + top_sq;
-		
-//ypointer-425
-	//	document.getElementById("square").style.top = (movey_quarter+400).toString() + "px";
-	//	document.getElementById("square_2").style.top = (movey_half).toString() + "px";
-	//	document.getElementById("square_3").style.top = (movey_threequart).toString() + "px";
-	//	document.getElementById("square2").style.top = (y-350).toString() + "px";
-	//	document.getElementById("square3").style.top = (y-370).toString() + "px";
-
-
-		//var movex_half = ((epiX-100) - (x-100))/2 + (epiX-100);
-
-		//var movey_half = ((epiY-130) - (y-130))/2 + (epiY-130);
-
-		// document.getElementById("mydiv2").style.left = (movex_half).toString() + "px";
-		// document.getElementById("mydiv2").style.top = (movey_half).toString() + "px";
-	//}
 
 	function clearCoor() {
 	    document.getElementById("demopointxx").innerHTML = " X";

@@ -278,4 +278,5 @@ body{
 	height: 50px;
 	width: 50px;
 	border-radius: 30px;
+	z-index: 1000;
 }
