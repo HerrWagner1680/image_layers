@@ -111,7 +111,7 @@ body{
 
 #header{
 	width: 100px;
-	height: 100px;
+	height: 10px; /* originally 100px */
 	cursor: default;
 }
 
@@ -221,12 +221,22 @@ body{
 /* below - pointxx and pointyy added for Android testing */
 /* body background color also changed */
 
+#epicenter {
+	display: none;
+}
+
 #demopointxx {
 	font-size: 25px;
+	background: white;
+	display: inline-block;
+	margin-bottom: 0px;
 }
 
 #demopointyy {
 	font-size: 25px;
+	background: white;
+	display: inline-block;
+	margin-bottom: 0px;
 }
 
 .arrow_button {
@@ -237,4 +247,17 @@ body{
 	width: 70px;
 	margin: 4px 18px;
 	padding: 4px 4px;
+}
+
+#android_text {
+	text-align: center;
+	display: none;
+}
+#iphone_text {
+	text-align: center;
+	display: none;
+}
+#other_device {
+	text-align: center;	
+	display: none;
 }

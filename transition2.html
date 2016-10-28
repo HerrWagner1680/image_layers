@@ -7,10 +7,13 @@
 </head>
 <!-- <body id="the_body" onmousemove="showCoords(event)" onmouseout="clearCoor()"> -->
 <body id="the_body" onmouseout="clearCoor()">
-	<div id="header">	
-		<p id="epicenter"></p> 
-		<p id="demopointxx"></p>
-		<p id="demopointyy"></p>
+		<p id="demopointxx">X</p>
+		<p id="demopointyy">Y</p>
+	<h3 id="android_text">You are using an ANDROID</h3>
+	<h3 id="iphone_text">You are using an iPhone or iPad</h3>
+	<h3 id="other_device">You are not using ANDROID or iOS</h3>
+	<div id="header">
+		<p id="epicenter"></p>	
 		<p id="sq_left"></p>
 		<p id="sq_top"></p>
 	</div>
@@ -59,25 +62,31 @@
 
 	      // Windows Phone must come first because its UA also contains "Android"
 	    if (/windows phone/i.test(userAgent)) {
-	        alert("Windows Phone");
+	        /* alert("Windows Phone"); */
 	        return "Windows Phone";
 	    }
 
 	    if (/android/i.test(userAgent)) {
-	        alert("Android");
+	    	document.getElementById("android_text").style.display = "block";
+	        /* alert("Android"); */
 	        return "Android";
+	        /* ID: android_text */
 	    }
 
 	    // iOS detection from: http://stackoverflow.com/a/9039885/177710
 	    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-	        alert("iOS");
+	        /* alert("iOS"); */
+	    	document.getElementById("iphone_text").style.display = "block";
 	        document.getElementById("up_arr").style.background = "black"; 
 	        return "iOS";
+	        /* ID: iphone_text */
 	    }
 
-	    alert("unknown");
+	    /* alert("unknown"); */
 	        document.getElementById("up_arr").style.background = "red"; 
+	    document.getElementById("other_device").style.display = "block";
 	    return "unknown";
+	    /* other ID: other_device */
 	}
 
 	getMobileOperatingSystem();
