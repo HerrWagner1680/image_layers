@@ -44,6 +44,7 @@ body{
 }
 
 #square{
+	display: none; /* newly added to transition2 */
 	position: relative;
 	left: -84.4px;
 	top: -176.8px;
@@ -56,6 +57,7 @@ body{
 	opacity: 1.0;
 }
 #square_2{
+	display: none; /* newly added to transition2 */
 	position: relative;
 	left: -91.5px;
 	top: -713.2px;
@@ -69,6 +71,7 @@ body{
 	opacity: 1.0;
 }
 #square_3{
+	display: none; /* newly added to transition2 */
 	position: relative;
 	left: -163.4px;
 	top: -1229.6px;
@@ -100,6 +103,7 @@ body{
 }
 
 .dot{
+	display: none;
 	position: relative;
 	left: 299px;
 	top: 120px;
@@ -118,11 +122,14 @@ body{
 #one{
 	position: relative;
 	overflow: hidden;
-	text-align: center;
+	/* text-align: center; */
 	width: 600px;
-	height: 320px;
+	/* height: 320px; */
+	height: 200px;
 	margin: 0 auto;
-	background: orange;
+	/* background: orange; */
+	background: #fff;
+	border: solid black 5px;
 	color: white;
 	opacity: 1;
 	  -webkit-transition: opacity 1s;
@@ -168,7 +175,7 @@ body{
 
 #container{
 	position: relative;
-	top: -580px;
+	top: -600px;
 	margin: 0 auto;
 	width: 500px;
 	height: 30px;
@@ -260,4 +267,15 @@ body{
 #other_device {
 	text-align: center;	
 	display: none;
+}
+#the_circle{
+    position: relative;
+    margin: 0px;
+    top: 50px; /* max range 0px - 150px */
+    left: 100px; /* max range 0px - 535px */
+	display: inline-block;
+	background: red;
+	height: 50px;
+	width: 50px;
+	border-radius: 30px;
 }
