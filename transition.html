@@ -125,9 +125,18 @@ function onStart ( touchEvent ) {
 } */
 /* end of new code, from http://uihacker.blogspot.com/2011/01/android-touchmove-event-bug.html */
 
+document.addEventListener("touchstart", function(){
+		event.preventDefault();
+		showCoords();
+});
+
+document.addEventListener("touchend", function(){
+		event.preventDefault();
+		showCoords();
+});
+
 document.addEventListener("touchmove", function(){
-		/* event.preventDefault(); */
-		touchmove.preventDefault();
+		event.preventDefault();
 		showCoords();
 });
 
