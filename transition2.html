@@ -30,8 +30,8 @@
 	<div id="container">
 		<!-- div id="prev" onclick="prevMove()">&#60;</div -->
 		<!-- div id="next" onclick="nextMove()">&#62;</div -->
-		<div id="up_arr" class="arrow_button" ontouchstart="moveUp()">up</div>
-		<div id="down_arr" class="arrow_button" ontouchmove="moveDown()">down</div>
+		<div id="up_arr" class="arrow_button" ontouchstart="moveUp()" onmouseup="moveUp()">up</div>
+		<div id="down_arr" class="arrow_button" ontouchmove="moveDown()" onmousedown="moveDown()">down</div>
 		<div id="left_arr" class="arrow_button" ontouchend="moveLeft()">left</div>
 		<div id="right_arr" class="arrow_button" onclick="moveRight()">right</div>
 	</div>
