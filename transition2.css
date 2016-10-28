@@ -3,7 +3,6 @@ body{
 	background: #ddd;
 	overflow: hidden;
 	cursor: default;
-	position: fixed; /* fixed body newly added */
 /*	-ms-transform: rotate(90deg); /* IE 9 */
  /*   -webkit-transform: rotate(90deg);*/ /* Safari */
  /*   transform: rotate(90deg);*/
@@ -228,4 +227,14 @@ body{
 
 #demopointyy {
 	font-size: 25px;
+}
+
+.arrow_button {
+	background: green;
+	color: white;
+	border-radius: 3px;
+	display: inline-block;
+	width: 70px;
+	margin: 4px 18px;
+	padding: 4px 4px;
 }

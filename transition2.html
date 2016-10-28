@@ -25,8 +25,12 @@
 	</div>
 
 	<div id="container">
-		<div id="prev" onclick="prevMove()">&#60;</div>
-		<div id="next" onclick="nextMove()">&#62;</div>
+		<!-- div id="prev" onclick="prevMove()">&#60;</div -->
+		<!-- div id="next" onclick="nextMove()">&#62;</div -->
+		<div id="up_arr" class="arrow_button" onclick="moveUp()">up</div>
+		<div id="down_arr" class="arrow_button" onclick="moveDown()">down</div>
+		<div id="left_arr" class="arrow_button" onclick="moveLeft()">left</div>
+		<div id="right_arr" class="arrow_button" onclick="moveRight()">right</div>
 	</div>
 	
 </body>
@@ -47,6 +51,34 @@
 			};
 	});
 
+	/* sensing type of mobile operating system */
+	/* http://stackoverflow.com/questions/21741841/detecting-ios-android-operating-system */
+
+	function getMobileOperatingSystem() {
+	  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+	      // Windows Phone must come first because its UA also contains "Android"
+	    if (/windows phone/i.test(userAgent)) {
+	        /* return "Windows Phone"; */
+	        alert("Windows Phone");
+	    }
+
+	    if (/android/i.test(userAgent)) {
+	        /* return "Android"; */
+	        alert("Android");
+	    }
+
+	    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+	    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+	        /* return "iOS"; */
+	        alert("iOS");
+	    }
+
+	    /* return "unknown"; */
+	    alert("unknown");
+	}
+
+	getMobileOperatingSystem();
 
 		boxes = ["one","two","three"];
 		var x = 0;
@@ -61,6 +93,20 @@
 			x = x + 1
 			if (x > 2) { x = 0 }
 			document.getElementById(boxes[x]).style.opacity = "1.0";
+		}
+
+		/* below are newly added for TRANSITION2 */
+		function moveUp(){
+			alert("MOVE UP");
+		}
+		function moveDown(){
+			alert("MOVE DOWN");
+		}
+		function moveLeft(){
+			alert("MOVE LEFT");
+		}
+		function moveRight(){
+			alert("MOVE RIGHT");
 		}
 
 	// You want the objects to move in the opposite direction from the pointer
